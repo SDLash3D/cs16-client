@@ -86,6 +86,13 @@
 #define MENU_BUY_SUBMACHINEGUN 32
 #define MENU_BUY_MACHINEGUN 33
 #define MENU_BUY_ITEM 34
+// -- cs16client extension start -- //
+#define MENU_RADIOA 35
+#define MENU_RADIOB 36
+#define MENU_RADIOC 37
+#define MENU_RADIOSELECTOR 38
+// -- cs16client extension end -- //
+
 
 #define IUSER3_CANSHOOT (1<<0)
 #define IUSER3_FREEZETIMEOVER (1<<1)

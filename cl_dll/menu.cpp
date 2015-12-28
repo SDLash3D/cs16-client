@@ -69,6 +69,8 @@ int CHudMenu :: Init( void )
 	HOOK_COMMAND( "client_buy_close", OldStyleMenuClose );
 	HOOK_COMMAND( "showvguimenu", ShowVGUIMenu );
 
+	_extended_menus = CVAR_CREATE("_extended_menus", "0", FCVAR_ARCHIVE);
+
 	InitHUDData();
 
 	m_bAllowSpec = true; // by default, spectating is allowed
@@ -190,33 +192,26 @@ int CHudMenu :: MsgFunc_ShowMenu( const char *pszName, int iSize, void *pbuf )
 
 	menustring = READ_STRING();
 
-	/*// find touch config
-	if( gEngfuncs.pfnGetCvarFloat("_touch_menus") != 0.0f )
+	// menu will be replaced by scripted touch config
+	// so execute it and exit
+	if( _extended_menus->value != 0.0f )
 	{
-		const char *szCmd = NULL;
-
-		if( strstr(menustring, "Team_Select") )
-			szCmd = "exec touch/chooseteam.cfg";
-		else if( strstr( menustring, "Terrorist_Select" ))
-			szCmd = "exec touch/chooseteam_tr.cfg";
-		else if( strstr( menustring, "CT_Select"))
-			szCmd = "exec touch/chooseteam_ct.cfg";
-
-		// menu will be replaced by scripted touch config
-		// so execute it and exit
-		if( szCmd )
+		if( strcmp(menustring, "#RadioA") )
 		{
-			m_fMenuDisplayed = 1;
-			m_iFlags |= HUD_ACTIVE;
-
-			ClientCmd(szCmd);
-
-			m_fWaitingForMore = NeedMore;
-
+			ShowVGUIMenu(MENU_RADIOA);
 			return 1;
 		}
-
-	}*/
+		else if( strcmp(menustring, "#RadioB"))
+		{
+			ShowVGUIMenu(MENU_RADIOB);
+			return 1;
+		}
+		else if( strcmp(menustring, "#RadioC"))
+		{
+			ShowVGUIMenu(MENU_RADIOC);
+			return 1;
+		}
+	}
 
 	if ( !m_fWaitingForMore ) // this is the start of a new menu
 	{
@@ -288,7 +283,8 @@ void CHudMenu::UserCmd_OldStyleMenuClose()
 }
 
 // lol, no real VGUI here
-// it's really good only for touchscreens
+// it's really good only for touchscreen
+
 void CHudMenu::ShowVGUIMenu( int menuType )
 {
 	char *szCmd;
@@ -336,6 +332,18 @@ void CHudMenu::ShowVGUIMenu( int menuType )
 		if( g_PlayerExtraInfo[gHUD.m_Scoreboard.m_iPlayerNum].teamnumber == 1 )
 			szCmd = "exec touch/buy_item_t.cfg";
 		else szCmd = "exec touch/buy_item_ct.cfg";
+		break;
+	case MENU_RADIOA:
+		szCmd = "exec touch/radioa.cfg";
+		break;
+	case MENU_RADIOB:
+		szCmd = "exec touch/radiob.cfg";
+		break;
+	case MENU_RADIOC:
+		szCmd = "exec touch/radioc.cfg";
+		break;
+	case MENU_RADIOSELECTOR:
+		szCmd = "exec touch/radioselector.cfg";
 		break;
 	default:
 		szCmd = "touch_removebutton _menu_*"; // back to the default touch page

@@ -526,7 +526,7 @@ void CHudHealth :: DrawPlayerLocation( void )
 
 void CHudHealth :: DrawRadarDot(int x, int y, int size, int r, int g, int b, int a)
 {
-	FillRGBA(62.5+ x - size/2,62.5+ y - size/2, size, size, r, g, b, a);
+	FillRGBA(62.5f + x - size/2.0f, 62.5f + y - size/2.0f, size, size, r, g, b, a);
 }
 
 Vector2D CHudHealth :: WorldToRadar(const Vector vPlayerOrigin, const Vector vObjectOrigin, const Vector vAngles  )
@@ -592,9 +592,9 @@ void CHudHealth :: DrawRadar( float flTime )
 
 		Vector2D pos = WorldToRadar(gHUD.m_vecOrigin, g_PlayerExtraInfo[i].origin, gHUD.m_vecAngles);
 		if( g_PlayerExtraInfo[i].has_c4 )
-			DrawRadarDot( pos.x, pos.y, 1, 255, 0, 0, 255 );
+			DrawRadarDot( pos.x, pos.y, 2, 255, 0, 0, 255 );
 		else
-			DrawRadarDot( pos.x, pos.y, 1, 0, 255, 0, 255 );
+			DrawRadarDot( pos.x, pos.y, 2, 0, 255, 0, 255 );
 	}
 
 	if( g_PlayerExtraInfo[gHUD.m_Scoreboard.m_iPlayerNum].teamnumber == 1)
@@ -605,7 +605,7 @@ void CHudHealth :: DrawRadar( float flTime )
 			Vector2D pos = WorldToRadar(gHUD.m_vecOrigin, g_PlayerExtraInfo[33].origin, gHUD.m_vecAngles);
 
 			// TODO: make it flash
-			DrawRadarDot( pos.x, pos.y, 2, 255, 0, 0, 255 );
+			DrawRadarDot( pos.x, pos.y, 4, 255, 0, 0, 255 );
 		}
 	}
 	else
@@ -621,7 +621,7 @@ void CHudHealth :: DrawRadar( float flTime )
 			Vector2D pos = WorldToRadar( gHUD.m_vecOrigin, g_HostageInfo[i].origin, gHUD.m_vecAngles );
 
 			// TODO: make it flash
-			DrawRadarDot( pos.x, pos.y, 2, 250, 0, 0, 255 );
+			DrawRadarDot( pos.x, pos.y, 4, 250, 0, 0, 255 );
 		}
 	}
 }

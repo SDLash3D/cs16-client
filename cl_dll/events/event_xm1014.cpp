@@ -36,13 +36,7 @@ void EV_FireXM1014(event_args_s *args)
 	{
 		++g_iShotsFired;
 		EV_MuzzleFlash();
-		if( args->bparam1 )
-		{
-			gEngfuncs.pEventAPI->EV_WeaponAnimation(gEngfuncs.pfnRandomLong(XM1014_FIRE1, XM1014_FIRE2), 2);
-		}
-		else
-		{
-		}
+		gEngfuncs.pEventAPI->EV_WeaponAnimation(gEngfuncs.pfnRandomLong(XM1014_FIRE1, XM1014_FIRE2), 2);
 	}
 
 	shell = gEngfuncs.pEventAPI->EV_FindModelIndex ("models/shotgunshell.mdl");
