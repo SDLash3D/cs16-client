@@ -284,6 +284,8 @@ DECLARE_COMMAND(m_Ammo, Close);
 DECLARE_COMMAND(m_Ammo, NextWeapon);
 DECLARE_COMMAND(m_Ammo, PrevWeapon);
 DECLARE_COMMAND(m_Ammo, Adjust_Crosshair);
+DECLARE_COMMAND (m_Ammo, Rebuy);
+DECLARE_COMMAND (m_Ammo, Autobuy);
 
 // width of ammo fonts
 #define AMMO_SMALL_WIDTH 10
@@ -319,6 +321,8 @@ int CHudAmmo::Init(void)
 	HOOK_COMMAND("invnext", NextWeapon);
 	HOOK_COMMAND("invprev", PrevWeapon);
 	HOOK_COMMAND("adjust_crosshair", Adjust_Crosshair);
+   HOOK_COMMAND ("rebuy", Rebuy);
+   HOOK_COMMAND ("autobuy", Autobuy);
 
 	Reset();
 
@@ -1013,6 +1017,61 @@ void CHudAmmo::UserCmd_PrevWeapon(void)
 	gpActiveSel = NULL;
 }
 
+void CHudAmmo::UserCmd_Autobuy ()
+{
+   char *afile = (char*)gEngfuncs.COM_LoadFile ("autobuy.txt", 5, NULL);
+   char *pfile = afile;
+   char token[256];
+   char szCmd[1024];
+
+   if (!pfile)
+   {
+      ConsolePrint ("Can't open autobuy.txt file.\n");
+      return;
+   }
+
+   strcpy (szCmd, "cl_setautobuy");
+
+   while (pfile = gEngfuncs.COM_ParseFile (pfile, token))
+   {
+      // append space first
+      strcat (szCmd, " ");
+      strcat (szCmd, token);
+   }
+
+   ConsolePrint (szCmd);
+   gEngfuncs.pfnClientCmd (szCmd);
+
+   gEngfuncs.COM_FreeFile (afile);
+}
+
+void CHudAmmo::UserCmd_Rebuy ()
+{
+   char *afile = (char*)gEngfuncs.COM_LoadFile ("rebuy.txt", 5, NULL);
+   char *pfile = afile;
+   char token[256];
+   char szCmd[1024];
+
+   if (!pfile)
+   {
+      ConsolePrint ("Can't open rebuy.txt file.\n");
+      return;
+   }
+
+   strcpy (szCmd, "cl_setrebuy");
+
+   while (pfile = gEngfuncs.COM_ParseFile (pfile, token))
+   {
+      // append space first
+      strcat (szCmd, " ");
+      strcat (szCmd, token);
+   }
+
+   ConsolePrint (szCmd);
+   gEngfuncs.pfnClientCmd (szCmd);
+
+   gEngfuncs.COM_FreeFile (afile);
+}
 
 
 //-------------------------------------------------------------------------

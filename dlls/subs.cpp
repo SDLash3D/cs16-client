@@ -95,7 +95,6 @@ void CBaseEntity::SUB_Remove(void)
 		pev->health = 0;
 		ALERT(at_aiconsole, "SUB_Remove called on entity with health > 0\n");
 	}
-
 	REMOVE_ENTITY(ENT(pev));
 }
 

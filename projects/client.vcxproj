@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\cl_dll\ammo.cpp" />
+    <ClCompile Include="..\cl_dll\ammohistory.cpp" />
+    <ClCompile Include="..\cl_dll\ammo_secondary.cpp" />
+    <ClCompile Include="..\cl_dll\battery.cpp" />
+    <ClCompile Include="..\cl_dll\cdll_int.cpp" />
+    <ClCompile Include="..\cl_dll\com_weapons.cpp" />
+    <ClCompile Include="..\cl_dll\death.cpp" />
+    <ClCompile Include="..\cl_dll\demo.cpp" />
+    <ClCompile Include="..\cl_dll\entity.cpp" />
+    <ClCompile Include="..\cl_dll\events.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_ak47.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_aug.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_awp.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_createexplo.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_createsmoke.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_deagle.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_decal_reset.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_elite_left.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_elite_right.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_famas.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_fiveseven.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_g3sg1.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_galil.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_glock18.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_knife.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_m249.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_m3.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_m4a1.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_mac10.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_mp5n.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_p228.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_p90.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_scout.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_sg550.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_sg552.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_tmp.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_ump45.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_usp.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_vehicle.cpp" />
+    <ClCompile Include="..\cl_dll\events\event_xm1014.cpp" />
+    <ClCompile Include="..\cl_dll\events\ev_cs16.cpp" />
+    <ClCompile Include="..\cl_dll\events\hl_events.cpp" />
+    <ClCompile Include="..\cl_dll\ev_common.cpp" />
+    <ClCompile Include="..\cl_dll\ev_hldm.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\flashlight.cpp" />
+    <ClCompile Include="..\cl_dll\GameStudioModelRenderer.cpp" />
+    <ClCompile Include="..\cl_dll\geiger.cpp" />
+    <ClCompile Include="..\cl_dll\health.cpp" />
+    <ClCompile Include="..\cl_dll\hl\hl_baseentity.cpp" />
+    <ClCompile Include="..\cl_dll\hl\hl_objects.cpp" />
+    <ClCompile Include="..\cl_dll\hl\hl_weapons.cpp" />
+    <ClCompile Include="..\cl_dll\hud.cpp" />
+    <ClCompile Include="..\cl_dll\hud_msg.cpp" />
+    <ClCompile Include="..\cl_dll\hud_redraw.cpp" />
+    <ClCompile Include="..\cl_dll\hud_servers.cpp" />
+    <ClCompile Include="..\cl_dll\hud_spectator.cpp" />
+    <ClCompile Include="..\cl_dll\hud_update.cpp" />
+    <ClCompile Include="..\cl_dll\input.cpp" />
+    <ClCompile Include="..\cl_dll\inputw32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\input_xash3d.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\in_camera.cpp" />
+    <ClCompile Include="..\cl_dll\menu.cpp" />
+    <ClCompile Include="..\cl_dll\message.cpp" />
+    <ClCompile Include="..\cl_dll\money.cpp" />
+    <ClCompile Include="..\cl_dll\MOTD.cpp" />
+    <ClCompile Include="..\cl_dll\nvg.cpp" />
+    <ClCompile Include="..\cl_dll\overview.cpp" />
+    <ClCompile Include="..\cl_dll\parsemsg.cpp" />
+    <ClCompile Include="..\cl_dll\radio.cpp" />
+    <ClCompile Include="..\cl_dll\rain.cpp" />
+    <ClCompile Include="..\cl_dll\saytext.cpp" />
+    <ClCompile Include="..\cl_dll\scoreboard.cpp" />
+    <ClCompile Include="..\cl_dll\scoreboard_stub.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\sniperscope.cpp" />
+    <ClCompile Include="..\cl_dll\soundsystem.cpp" />
+    <ClCompile Include="..\cl_dll\statusbar.cpp" />
+    <ClCompile Include="..\cl_dll\status_icons.cpp" />
+    <ClCompile Include="..\cl_dll\StudioModelRenderer.cpp" />
+    <ClCompile Include="..\cl_dll\studio_util.cpp" />
+    <ClCompile Include="..\cl_dll\text_message.cpp" />
+    <ClCompile Include="..\cl_dll\timer.cpp" />
+    <ClCompile Include="..\cl_dll\train.cpp" />
+    <ClCompile Include="..\cl_dll\tri.cpp" />
+    <ClCompile Include="..\cl_dll\unicode_strtools.cpp" />
+    <ClCompile Include="..\cl_dll\util.cpp" />
+    <ClCompile Include="..\cl_dll\vgui_parser.cpp" />
+    <ClCompile Include="..\cl_dll\view.cpp" />
+    <ClCompile Include="..\common\interface.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ak47.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_aug.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_awp.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_c4.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_deagle.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_elite.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_famas.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_fiveseven.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_flashbang.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_g3sg1.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_galil.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_glock18.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_hegrenade.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_knife.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m249.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m3.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m4a1.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mac10.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mp5navy.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p228.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p90.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_scout.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg550.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg552.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_smokegrenade.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_tmp.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ump45.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_usp.cpp" />
+    <ClCompile Include="..\dlls\wpn_shared\wpn_xm1014.cpp" />
+    <ClCompile Include="..\pm_shared\pm_debug.c" />
+    <ClCompile Include="..\pm_shared\pm_math.c" />
+    <ClCompile Include="..\pm_shared\pm_shared.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\cl_dll\ammo.h" />
+    <ClInclude Include="..\cl_dll\ammohistory.h" />
+    <ClInclude Include="..\cl_dll\camera.h" />
+    <ClInclude Include="..\cl_dll\cl_dll.h" />
+    <ClInclude Include="..\cl_dll\cl_util.h" />
+    <ClInclude Include="..\cl_dll\com_weapons.h" />
+    <ClInclude Include="..\cl_dll\demo.h" />
+    <ClInclude Include="..\cl_dll\eventscripts.h" />
+    <ClInclude Include="..\cl_dll\events\events.h" />
+    <ClInclude Include="..\cl_dll\ev_hldm.h" />
+    <ClInclude Include="..\cl_dll\GameStudioModelRenderer.h" />
+    <ClInclude Include="..\cl_dll\health.h" />
+    <ClInclude Include="..\cl_dll\hud.h" />
+    <ClInclude Include="..\cl_dll\hud_iface.h" />
+    <ClInclude Include="..\cl_dll\hud_servers.h" />
+    <ClInclude Include="..\cl_dll\hud_servers_priv.h" />
+    <ClInclude Include="..\cl_dll\hud_spectator.h" />
+    <ClInclude Include="..\cl_dll\in_defs.h" />
+    <ClInclude Include="..\cl_dll\kbutton.h" />
+    <ClInclude Include="..\cl_dll\overview.h" />
+    <ClInclude Include="..\cl_dll\parsemsg.h" />
+    <ClInclude Include="..\cl_dll\rain.h" />
+    <ClInclude Include="..\cl_dll\StudioModelRenderer.h" />
+    <ClInclude Include="..\cl_dll\studio_util.h" />
+    <ClInclude Include="..\cl_dll\tf_defs.h" />
+    <ClInclude Include="..\cl_dll\unicode_strtools.h" />
+    <ClInclude Include="..\cl_dll\util_vector.h" />
+    <ClInclude Include="..\cl_dll\vgui_parser.h" />
+    <ClInclude Include="..\cl_dll\view.h" />
+    <ClInclude Include="..\cl_dll\wrect.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DC1DD765-CFEB-47DA-A2EA-9F1E20A24272}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>hl_cdll</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(Configuration)\$(ProjectName)\</OutDir>
+    <TargetName>client</TargetName>
+    <IntDir>$(Configuration)\$(ProjectName)\int\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(Configuration)\$(ProjectName)\</OutDir>
+    <TargetName>client</TargetName>
+    <IntDir>$(Configuration)\$(ProjectName)\int\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CLIENT_DLL;CLIENT_WEAPONS;HL_DLL;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\dlls;..\cl_dll;..\public;..\common;..\pm_shared;..\engine;..\utils\vgui\include;..\game_shared;..\external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>wsock32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <BaseAddress>
+      </BaseAddress>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CLIENT_DLL;CLIENT_WEAPONS;HL_DLL;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\dlls;..\cl_dll;..\public;..\common;..\pm_shared;..\engine;..\utils\vgui\include;..\game_shared;..\external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>wsock32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <BaseAddress>
+      </BaseAddress>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

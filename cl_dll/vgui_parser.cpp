@@ -20,13 +20,13 @@ GNU General Public License for more details.
 
 #include "unicode_strtools.h"
 
-#define MAX_LOCALIZED_TITLES 512
+#define MAX_LOCALIZED_TITLES 4096
 
 
 struct locString
 {
 	char toLocalize[256];
-	char localizedString[512];
+	char localizedString[2048];
 };
 
 locString gTitlesTXT[MAX_LOCALIZED_TITLES]; // for localized titles.txt strings
@@ -45,9 +45,9 @@ const char* Localize( const char* string )
 	return string;
 }
 
-void Localize_Init(  )
+void Localize_Init ()
 {
-	wchar_t *filename = L"cstrike/resource/cstrike_english.txt";
+   wchar_t *filename = L"cstrike/resource/cstrike_english.txt";
 
    FILE *wf = _wfopen (filename, L"rb");
 
@@ -72,34 +72,38 @@ void Localize_Init(  )
    char *ansi_buffer = new char[ansi_length];
    Q_UTF16ToUTF8 (unicode_buffer, ansi_buffer, ansi_length, STRINGCONVERT_ASSERT_REPLACE);
 
-	char token[1024];
-	giLastTitlesTXT = 0;
+   char token[1024];
+   giLastTitlesTXT = 0;
 
-	while( true )
-	{
-      ansi_buffer = gEngfuncs.COM_ParseFile(ansi_buffer, token );
+   while (true)
+   {
+      if (giLastTitlesTXT > MAX_LOCALIZED_TITLES)
+      {
+         gEngfuncs.Con_Printf ("Too many localized titles.txt strings\n");
+         break;
+      }
 
-		if( !ansi_buffer) break;
+      ansi_buffer = gEngfuncs.COM_ParseFile (ansi_buffer, token);
 
-		if( strstr(token, "TitlesTXT") )
-		{
-			if( giLastTitlesTXT > MAX_LOCALIZED_TITLES )
-			{
-				gEngfuncs.Con_Printf( "Too many localized titles.txt strings\n");
-				break;
-			}
-			strcpy(gTitlesTXT[giLastTitlesTXT].toLocalize, &token[18]);
-         ansi_buffer = gEngfuncs.COM_ParseFile(ansi_buffer, gTitlesTXT[giLastTitlesTXT].localizedString );
+      if (!ansi_buffer) break;
 
-			if( !ansi_buffer) break;
+      if (strlen (token) > 5)
+      {
+         if (strstr (token, "TitlesTXT") != NULL)
+            strcpy (gTitlesTXT[giLastTitlesTXT].toLocalize, &token[18]);
+         else
+            strcpy (gTitlesTXT[giLastTitlesTXT].toLocalize, token);
 
-			giLastTitlesTXT++;
-		}
-	}
+         ansi_buffer = gEngfuncs.COM_ParseFile (ansi_buffer, gTitlesTXT[giLastTitlesTXT].localizedString);
+      }
+
+      if (!ansi_buffer) break;
+
+      giLastTitlesTXT++;
+
+   }
 
    free (ansi_buffer);
- //  free (unicode_buffer);
-  
 }
 
 void Localize_Free( )

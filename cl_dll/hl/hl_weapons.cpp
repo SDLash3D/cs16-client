@@ -388,95 +388,276 @@ void CBasePlayerWeapon::SendWeaponAnim( int iAnim, int skiplocal )
 	HUD_SendWeaponAnim( iAnim, m_pPlayer->pev->body, 0 );
 }
 
-Vector CBaseEntity::FireBullets3 ( Vector vecSrc, Vector vecDirShooting, float flSpread, float flDistance, int iPenetration, int iBulletType, int iDamage, float flRangeModifier, entvars_t *pevAttacker, bool bPistol, int shared_rand )
+Vector CBaseEntity::FireBullets3 (Vector vecSrc, Vector vecDirShooting, float flSpread, float flDistance, int iPenetration, int iBulletType, int iDamage, float flRangeModifier, entvars_t *pevAttacker, bool bPistol, int shared_rand)
 {
-	int iPenetrationPower;
-	float flPenetrationDistance;
-	int iCurrentDamage = iDamage;
-	int iSparksAmount;
+   int iOriginalPenetration = iPenetration;
+   int iPenetrationPower;
+   float flPenetrationDistance;
+   int iCurrentDamage = iDamage;
+   float flCurrentDistance;
+   TraceResult tr, tr2;
+   Vector vecRight = gpGlobals->v_right;
+   Vector vecUp = gpGlobals->v_up;
+   CBaseEntity *pEntity;
+   bool bHitMetal = false;
+   int iSparksAmount;
 
-	switch (iBulletType)
-	{
-	case BULLET_PLAYER_9MM:
-	{
-		iPenetrationPower = 21;
-		flPenetrationDistance = 800;
-		iSparksAmount = 15;
-		iCurrentDamage += (-4 + RANDOM_LONG(0, 10));
-		break;
-	}
+   switch (iBulletType)
+   {
+   case BULLET_PLAYER_9MM:
+   {
+      iPenetrationPower = 21;
+      flPenetrationDistance = 800;
+      iSparksAmount = 15;
+      iCurrentDamage += (-4 + RANDOM_LONG (0, 10));
+      break;
+   }
 
-	case BULLET_PLAYER_45ACP:
-	{
-		iPenetrationPower = 15;
-		flPenetrationDistance = 500;
-		iSparksAmount = 20;
-		iCurrentDamage += (-2 + RANDOM_LONG(0, 4));
-		break;
-	}
+   case BULLET_PLAYER_45ACP:
+   {
+      iPenetrationPower = 15;
+      flPenetrationDistance = 500;
+      iSparksAmount = 20;
+      iCurrentDamage += (-2 + RANDOM_LONG (0, 4));
+      break;
+   }
 
-	case BULLET_PLAYER_50AE:
-	{
-		iPenetrationPower = 30;
-		flPenetrationDistance = 1000;
-		iSparksAmount = 20;
-		iCurrentDamage += (-4 + RANDOM_LONG(0, 10));
-		break;
-	}
+   case BULLET_PLAYER_50AE:
+   {
+      iPenetrationPower = 30;
+      flPenetrationDistance = 1000;
+      iSparksAmount = 20;
+      iCurrentDamage += (-4 + RANDOM_LONG (0, 10));
+      break;
+   }
 
-	case BULLET_PLAYER_762MM:
-	{
-		iPenetrationPower = 39;
-		flPenetrationDistance = 5000;
-		iSparksAmount = 30;
-		iCurrentDamage += (-2 + RANDOM_LONG(0, 4));
-		break;
-	}
+   case BULLET_PLAYER_762MM:
+   {
+      iPenetrationPower = 39;
+      flPenetrationDistance = 5000;
+      iSparksAmount = 30;
+      iCurrentDamage += (-2 + RANDOM_LONG (0, 4));
+      break;
+   }
 
-	case BULLET_PLAYER_556MM:
-	{
-		iPenetrationPower = 35;
-		flPenetrationDistance = 4000;
-		iSparksAmount = 30;
-		iCurrentDamage += (-3 + RANDOM_LONG(0, 6));
-		break;
-	}
+   case BULLET_PLAYER_556MM:
+   {
+      iPenetrationPower = 35;
+      flPenetrationDistance = 4000;
+      iSparksAmount = 30;
+      iCurrentDamage += (-3 + RANDOM_LONG (0, 6));
+      break;
+   }
 
-	case BULLET_PLAYER_338MAG:
-	{
-		iPenetrationPower = 45;
-		flPenetrationDistance = 8000;
-		iSparksAmount = 30;
-		iCurrentDamage += (-4 + RANDOM_LONG(0, 8));
-		break;
-	}
+   case BULLET_PLAYER_338MAG:
+   {
+      iPenetrationPower = 45;
+      flPenetrationDistance = 8000;
+      iSparksAmount = 30;
+      iCurrentDamage += (-4 + RANDOM_LONG (0, 8));
+      break;
+   }
 
-	case BULLET_PLAYER_57MM:
-	{
-		iPenetrationPower = 30;
-		flPenetrationDistance = 2000;
-		iSparksAmount = 20;
-		iCurrentDamage += (-4 + RANDOM_LONG(0, 10));
-		break;
-	}
+   case BULLET_PLAYER_57MM:
+   {
+      iPenetrationPower = 30;
+      flPenetrationDistance = 2000;
+      iSparksAmount = 20;
+      iCurrentDamage += (-4 + RANDOM_LONG (0, 10));
+      break;
+   }
 
-	case BULLET_PLAYER_357SIG:
-	{
-		iPenetrationPower = 25;
-		flPenetrationDistance = 800;
-		iSparksAmount = 20;
-		iCurrentDamage += (-4 + RANDOM_LONG(0, 10));
-		break;
-	}
+   case BULLET_PLAYER_357SIG:
+   {
+      iPenetrationPower = 25;
+      flPenetrationDistance = 800;
+      iSparksAmount = 20;
+      iCurrentDamage += (-4 + RANDOM_LONG (0, 10));
+      break;
+   }
 
-	default:
-	{
-		iPenetrationPower = 0;
-		flPenetrationDistance = 0;
-		break;
-	}
-	}
-	return Vector( flSpread, flSpread, 0);
+   default:
+   {
+      iPenetrationPower = 0;
+      flPenetrationDistance = 0;
+      break;
+   }
+   }
+
+   if (!pevAttacker)
+      pevAttacker = pev;
+
+   float x, y, z;
+
+   if (IsPlayer ())
+   {
+      x = UTIL_SharedRandomFloat (shared_rand, -0.5, 0.5) + UTIL_SharedRandomFloat (shared_rand + 1, -0.5, 0.5);
+      y = UTIL_SharedRandomFloat (shared_rand + 2, -0.5, 0.5) + UTIL_SharedRandomFloat (shared_rand + 3, -0.5, 0.5);
+   }
+   else
+   {
+      do
+      {
+         x = RANDOM_FLOAT (-0.5, 0.5) + RANDOM_FLOAT (-0.5, 0.5);
+         y = RANDOM_FLOAT (-0.5, 0.5) + RANDOM_FLOAT (-0.5, 0.5);
+         z = x * x + y * y;
+      } while (z > 1);
+   }
+
+   Vector vecDir = vecDirShooting + x * flSpread * vecRight + y * flSpread * vecUp;
+   Vector vecEnd = vecSrc + vecDir * flDistance;
+   Vector vecOldSrc;
+   Vector vecNewSrc;
+   float flDamageModifier = 0.5;
+
+   while (iPenetration != 0)
+   {
+      ClearMultiDamage ();
+      UTIL_TraceLine (vecSrc, vecEnd, dont_ignore_monsters, ENT (pev), &tr);
+
+      char cTextureType = UTIL_TextureHit (&tr, vecSrc, vecEnd);
+      bool bSparks = false;
+
+      switch (cTextureType)
+      {
+      case CHAR_TEX_METAL:
+      {
+         bSparks = true;
+         bHitMetal = true;
+         iPenetrationPower *= 0.15;
+         flDamageModifier = 0.2;
+         break;
+      }
+
+      case CHAR_TEX_CONCRETE:
+      {
+         iPenetrationPower *= 0.25;
+         flDamageModifier = 0.25;
+         break;
+      }
+
+      case CHAR_TEX_GRATE:
+      {
+         bSparks = true;
+         bHitMetal = true;
+         iPenetrationPower *= 0.5;
+         flDamageModifier = 0.4;
+         break;
+      }
+
+      case CHAR_TEX_VENT:
+      {
+         bSparks = true;
+         bHitMetal = true;
+         iPenetrationPower *= 0.5;
+         flDamageModifier = 0.45;
+         break;
+      }
+
+      case CHAR_TEX_TILE:
+      {
+         iPenetrationPower *= 0.65;
+         flDamageModifier = 0.3;
+         break;
+      }
+
+      case CHAR_TEX_COMPUTER:
+      {
+         bSparks = true;
+         bHitMetal = true;
+         iPenetrationPower *= 0.4;
+         flDamageModifier = 0.45;
+         break;
+      }
+
+      case CHAR_TEX_WOOD:
+      {
+         iPenetrationPower *= 1;
+         flDamageModifier = 0.6;
+         break;
+      }
+
+      default:
+      {
+         bSparks = false;
+         break;
+      }
+      }
+
+      if (tr.flFraction != 1.0)
+      {
+         pEntity = CBaseEntity::Instance (tr.pHit);
+         iPenetration--;
+         flCurrentDistance = tr.flFraction * flDistance;
+         iCurrentDamage *= pow (flRangeModifier, flCurrentDistance / 500);
+
+         if (flCurrentDistance > flPenetrationDistance)
+            iPenetration = 0;
+
+         if (tr.iHitgroup == HITGROUP_SHIELD)
+         {
+            iPenetration = 0;
+
+            if (tr.flFraction != 1.0)
+            {
+               if (RANDOM_LONG (0, 1))
+                  EMIT_SOUND (pEntity->edict (), CHAN_VOICE, "weapons/ric_metal-1.wav", 1, ATTN_NORM);
+               else
+                  EMIT_SOUND (pEntity->edict (), CHAN_VOICE, "weapons/ric_metal-2.wav", 1, ATTN_NORM);
+
+               pEntity->pev->punchangle.x = iCurrentDamage * RANDOM_FLOAT (-0.15, 0.15);
+               pEntity->pev->punchangle.z = iCurrentDamage * RANDOM_FLOAT (-0.15, 0.15);
+
+               if (pEntity->pev->punchangle.x < 4)
+                  pEntity->pev->punchangle.x = 4;
+
+               if (pEntity->pev->punchangle.z < -5)
+                  pEntity->pev->punchangle.z = -5;
+               else if (pEntity->pev->punchangle.z > 5)
+                  pEntity->pev->punchangle.z = 5;
+            }
+
+            break;
+         }
+
+         if ((VARS (tr.pHit)->solid == SOLID_BSP) && (iPenetration != 0))
+         {
+            if (bPistol)
+               DecalGunshot (&tr, iBulletType, false, pev, bHitMetal);
+            else if (RANDOM_LONG (0, 3))
+               DecalGunshot (&tr, iBulletType, true, pev, bHitMetal);
+
+            vecSrc = tr.vecEndPos + (vecDir * iPenetrationPower);
+            flDistance = (flDistance - flCurrentDistance) * 0.5;
+            vecEnd = vecSrc + (vecDir * flDistance);
+
+            pEntity->TraceAttack (pevAttacker, iCurrentDamage, vecDir, &tr, DMG_BULLET | DMG_NEVERGIB);
+
+            iCurrentDamage *= flDamageModifier;
+         }
+         else
+         {
+            if (bPistol)
+               DecalGunshot (&tr, iBulletType, false, pev, bHitMetal);
+            else if (RANDOM_LONG (0, 3))
+               DecalGunshot (&tr, iBulletType, true, pev, bHitMetal);
+
+            vecSrc = tr.vecEndPos + (vecDir * 42);
+            flDistance = (flDistance - flCurrentDistance) * 0.75;
+            vecEnd = vecSrc + (vecDir * flDistance);
+
+            pEntity->TraceAttack (pevAttacker, iCurrentDamage, vecDir, &tr, DMG_BULLET | DMG_NEVERGIB);
+
+            iCurrentDamage *= 0.75;
+         }
+      }
+      else
+         iPenetration = 0;
+
+      ApplyMultiDamage (pev, pevAttacker);
+   }
+
+   return Vector (x * flSpread, y * flSpread, 0);
 }
 /*
 =====================
@@ -641,6 +822,16 @@ void CBasePlayer::Spawn( void )
 	g_irunninggausspred = false;
 }
 
+Vector CBasePlayer::GetGunPosition ()
+{
+   Vector origin = pev->origin;
+   Vector view_ofs;
+
+   gEngfuncs.pEventAPI->EV_LocalPlayerViewheight (view_ofs);
+
+   return origin + view_ofs;
+}
+
 /*
 =====================
 UTIL_TraceLine
@@ -784,6 +975,12 @@ CBaseEntity *UTIL_PlayerByIndex(int playerIndex)
 
 	return pPlayer;
 }
+
+void UTIL_MakeVectors (const Vector &vec)
+{
+   gEngfuncs.pfnAngleVectors (vec, gpGlobals->v_forward, gpGlobals->v_right, gpGlobals->v_up);
+}
+
 
 
 /*

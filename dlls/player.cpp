@@ -7345,6 +7345,10 @@ AutoBuyInfoStruct *CBasePlayer::GetAutoBuyCommandInfo(const char *command)
 	while (ret == NULL)
 	{
 		temp = &(g_autoBuyInfo[i]);
+
+      if (temp && !temp->m_class)
+         break;
+
 		++i;
 
 		if (stricmp(temp->m_command, command) == 0)
