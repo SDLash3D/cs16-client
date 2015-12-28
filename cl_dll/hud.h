@@ -472,6 +472,7 @@ public:
 
 	int m_fMenuDisplayed;
 	bool m_bAllowSpec;
+	cvar_t *_extended_menus;
 	int m_bitsValidSlots;
 	float m_flShutoffTime;
 	int m_fWaitingForMore;

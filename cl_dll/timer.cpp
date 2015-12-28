@@ -38,7 +38,7 @@ int CHudTimer::Draw( float fTime )
 	int minutes = max( 0, (int)( m_iTime + m_fStartTime - gHUD.m_flTime ) / 60);
 	int seconds = max( 0, (int)( m_iTime + m_fStartTime - gHUD.m_flTime ) - (minutes * 60));
 
-	if( m_iTime > 20 )
+	if( minutes * 60 + seconds > 20 )
 	{
 		UnpackRGB(r,g,b, RGB_YELLOWISH );
 	}
@@ -51,8 +51,9 @@ int CHudTimer::Draw( float fTime )
 			m_bPanicColorChange = !m_bPanicColorChange;
 		}
 		UnpackRGB( r, g, b, m_bPanicColorChange ? RGB_YELLOWISH : RGB_REDISH );
-
 	}
+
+	ScaleColors( r, g, b, MIN_ALPHA );
 
     
     int iWatchWidth = gHUD.GetSpriteRect(m_HUD_timer).right - gHUD.GetSpriteRect(m_HUD_timer).left;
@@ -63,9 +64,11 @@ int CHudTimer::Draw( float fTime )
     SPR_Set(gHUD.GetSprite(m_HUD_timer), r, g, b);
     SPR_DrawAdditive(0, x, y, &gHUD.GetSpriteRect(m_HUD_timer));
         
-	x = gHUD.DrawHudNumber2( x + iWatchWidth, y, false, 2, minutes, r, g, b );
+	x = gHUD.DrawHudNumber2( x + iWatchWidth / 4, y, false, 2, minutes, r, g, b );
+	// draw :
 	FillRGBA(x + iWatchWidth / 4, y + gHUD.m_iFontHeight / 4, 2, 2, r, g, b, 100);
 	FillRGBA(x + iWatchWidth / 4, y + gHUD.m_iFontHeight - gHUD.m_iFontHeight / 4, 2, 2, r, g, b, 100);
+
 	gHUD.DrawHudNumber2( x + iWatchWidth / 2, y, true, 2, seconds, r, g, b );
 	return 1;
 }

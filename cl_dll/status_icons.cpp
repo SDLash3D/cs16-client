@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include "parsemsg.h"
 #include "event_api.h"
+#include "com_weapons.h"
 
 DECLARE_MESSAGE( m_StatusIcons, StatusIcon );
 
@@ -40,7 +41,6 @@ int CHudStatusIcons::Init( void )
 
 int CHudStatusIcons::VidInit( void )
 {
-
 	return 1;
 }
 
@@ -58,7 +58,7 @@ int CHudStatusIcons::Draw( float flTime )
 	// find starting position to draw from, along right-hand side of screen
 	int x = 5;
 	int y = ScreenHeight / 2;
-	
+
 	// loop through icon list, and draw any valid icons drawing up from the middle of screen
 	for ( int i = 0; i < MAX_ICONSPRITES; i++ )
 	{
@@ -66,7 +66,9 @@ int CHudStatusIcons::Draw( float flTime )
 		{
 			y -= ( m_IconList[i].rc.bottom - m_IconList[i].rc.top ) + 5;
 			
-			SPR_Set( m_IconList[i].spr, m_IconList[i].r, m_IconList[i].g, m_IconList[i].b );
+			if( g_bInBombZone && !strcmp(m_IconList[i].szSpriteName, "c4") && ((int)(flTime * 10) % 2))
+				SPR_Set( m_IconList[i].spr, 255, 16, 16 );
+			else SPR_Set( m_IconList[i].spr, m_IconList[i].r, m_IconList[i].g, m_IconList[i].b );
 			SPR_DrawAdditive( 0, x, y, &m_IconList[i].rc );
 		}
 	}
@@ -87,6 +89,7 @@ int CHudStatusIcons::MsgFunc_StatusIcon( const char *pszName, int iSize, void *p
 
 	int ShouldEnable = READ_BYTE();
 	char *pszIconName = READ_STRING();
+
 	if ( ShouldEnable )
 	{
 		int r = READ_BYTE();
