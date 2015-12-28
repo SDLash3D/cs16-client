@@ -160,13 +160,8 @@ public:
 	void _cdecl UserCmd_NextWeapon( void );
 	void _cdecl UserCmd_PrevWeapon( void );
 	void _cdecl UserCmd_Adjust_Crosshair( void );
-<<<<<<< HEAD
-   void _cdecl UserCmd_Rebuy (void);
-   void _cdecl UserCmd_Autobuy (void);
-=======
 	void _cdecl UserCmd_Rebuy(void);
 	void _cdecl UserCmd_Autobuy(void);
->>>>>>> refs/remotes/SDLash3D/master
 
 private:
 	float m_fFade;
