@@ -229,18 +229,18 @@ void CBasePlayer::Radio(const char *msg_id, const char *msg_verbose, int pitch, 
 
 void RadiusFlash(Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage) { }
 void UTIL_TraceHull(const Vector &vecStart, const Vector &vecEnd, IGNORE_MONSTERS igmon, int hullNumber, edict_t *pentIgnore, TraceResult *ptr) { }
-float TEXTURETYPE_PlaySound(TraceResult *ptr, Vector vecSrc, Vector vecEnd, int iBulletType) { }
+float TEXTURETYPE_PlaySound (TraceResult *ptr, Vector vecSrc, Vector vecEnd, int iBulletType) { return 0.0f;  }
 void UTIL_ScreenShake(const Vector &center, float amplitude, float frequency, float duration, float radius) { }
 void UTIL_Bubbles(Vector mins, Vector maxs, int count) { }
 void RemoveEntityHashValue(entvars_s *pev, const char *value, hash_types_e fieldType) { }
 void AddEntityHashValue(entvars_s *pev, const char *value, hash_types_e fieldType) { }
-int UTIL_PointContents(const Vector &vec) { }
+int UTIL_PointContents (const Vector &vec) { return 0.0f; }
 void UTIL_EmitAmbientSound(edict_t *entity, const Vector &vecOrigin, const char *samp, float vol, float attenuation, int fFlags, int pitch) { }
 
-CGrenade *CGrenade::ShootSatchelCharge(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity) { }
-CGrenade *CGrenade::ShootTimed(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time) { }
-CGrenade *CGrenade::ShootTimed2(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time, int iTeam, unsigned short usEvent) { }
-CGrenade *CGrenade::ShootSmokeGrenade(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time, unsigned short usEvent) { }
+CGrenade *CGrenade::ShootSatchelCharge (entvars_t *pevOwner, Vector vecStart, Vector vecVelocity) { return NULL; }
+CGrenade *CGrenade::ShootTimed(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time) { return NULL; }
+CGrenade *CGrenade::ShootTimed2(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time, int iTeam, unsigned short usEvent) { return NULL; }
+CGrenade *CGrenade::ShootSmokeGrenade(entvars_t *pevOwner, Vector vecStart, Vector vecVelocity, float time, unsigned short usEvent) { return NULL; }
 
 // CS16 END
 

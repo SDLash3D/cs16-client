@@ -168,6 +168,8 @@ int CHud::MsgFunc_BombDrop(const char *pszName, int iSize, void *pbuf)
 
 	if ( g_PlayerExtraInfo[33].playerclass == 1 )
 		m_Timer.m_iFlags = 0;
+
+   return 1;
 }
 
 int CHud::MsgFunc_BombPickup(const char *pszName, int iSize, void *pbuf)

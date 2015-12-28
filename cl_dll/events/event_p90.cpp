@@ -17,8 +17,7 @@ vec3_t origin, angles, velocity;
 	vec3_t vecSrc, vecAiming;
 	vec3_t up, right, forward;
 	float flSpread = 0.01;
-	const char *szSoundName;
-	int sequence, shell, idx;
+	int  shell, idx;
 
 	idx = args->entindex;
 	VectorCopy( args->origin, origin );

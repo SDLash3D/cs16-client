@@ -43,3 +43,7 @@ typedef int (*pfnUserMsgHook)(const char *pszName, int iSize, void *pbuf);
 #include "render_api.h"
 extern cl_enginefunc_t gEngfuncs;
 extern render_api_t gRenderAPI;
+
+#ifndef M_PI
+const float M_PI = 3.141592653589793f;
+#endif

@@ -17,7 +17,7 @@ void EV_FireAUG( struct event_args_s *args )
 	vec3_t vecSrc, vecAiming;
 	vec3_t up, right, forward;
 	float flSpread = 0.01;
-	int shell, idx, sequence;
+	int shell, idx;
 
 	idx = args->entindex;
 	VectorCopy( args->origin, origin );

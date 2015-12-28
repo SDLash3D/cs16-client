@@ -29,6 +29,8 @@
 #include "ammohistory.h"
 #include "eventscripts.h"
 #include "com_weapons.h"
+
+#include <math.h>
 //#include "vgui_TeamFortressViewport.h"
 
 WEAPON *gpActiveSel;	// NULL means off, 1 means just the menu bar, otherwise
@@ -41,6 +43,30 @@ WeaponsResource gWR;
 
 int g_weaponselect = 0;
 int g_iShotsFired;
+
+static inline void SineCosine (float rad, float *sin, float *cos)
+{
+#if defined (_WIN32) && defined (_MSC_VER)
+   __asm
+   {
+      fld dword ptr[rad]
+      fsincos
+      mov ebx, [cos]
+      fstp dword ptr[ebx]
+      mov ebx, [sin]
+      fstp dword ptr[ebx]
+   }
+#elif defined (__linux__) || defined (GCC) || defined (__APPLE__)
+   register double _cos, _sin;
+   __asm __volatile__ ("fsincos" : "=t" (_cos), "=u" (_sin) : "0" (rad));
+
+   *cos = _cos;
+   *sin = _sin;
+#else
+   *sin = sinf (rad);
+   *cos = cosf (rad);
+#endif
+}
 
 void WeaponsResource :: LoadAllWeaponSprites( void )
 {
@@ -232,7 +258,7 @@ WEAPON* WeaponsResource :: GetNextActivePos( int iSlot, int iSlotPos )
 
 int giBucketHeight, giBucketWidth, giABHeight, giABWidth; // Ammo Bar width and height
 
-HSPRITE ghsprBuckets;					// Sprite for top row of weapons menu
+SptiteHandle_t ghsprBuckets;					// Sprite for top row of weapons menu
 
 DECLARE_MESSAGE(m_Ammo, CurWeapon );	// Current weapon and clip
 DECLARE_MESSAGE(m_Ammo, WeaponList);	// new weapon type
@@ -422,7 +448,7 @@ void CHudAmmo::Think(void)
 // Helper function to return a Ammo pointer from id
 //
 
-HSPRITE* WeaponsResource :: GetAmmoPicFromWeapon( int iAmmoId, wrect_t& rect )
+SptiteHandle_t* WeaponsResource :: GetAmmoPicFromWeapon( int iAmmoId, wrect_t& rect )
 {
 	for ( int i = 0; i < MAX_WEAPONS; i++ )
 	{
@@ -660,6 +686,8 @@ int CHudAmmo::MsgFunc_CurWeapon(const char *pszName, int iSize, void *pbuf )
 	else
 	{
 		wrect_t nullrc;
+      nullrc.bottom = nullrc.right = nullrc.left = nullrc.top = 0;
+
 		SetCrosshair( 0, nullrc, 0, 0, 0);
 	}
 
@@ -715,6 +743,7 @@ int CHudAmmo::MsgFunc_Crosshair(const char *pszName, int iSize, void *pbuf)
 	{
 		m_bDrawCrosshair = false;
 	}
+   return 1;
 }
 
 int CHudAmmo::MsgFunc_Brass( const char *pszName, int iSize, void *pbuf )
@@ -741,7 +770,7 @@ int CHudAmmo::MsgFunc_Brass( const char *pszName, int iSize, void *pbuf )
 	int PlayerID = READ_BYTE();
 
 	float sin, cos, x, y;
-	sincosf( Rotation, &sin, &cos );
+   SineCosine ( Rotation, &sin, &cos );
 	x = -9.0 * sin;
 	y = 9.0 * cos;
 
@@ -992,7 +1021,6 @@ void CHudAmmo::UserCmd_PrevWeapon(void)
 
 int CHudAmmo::Draw(float flTime)
 {
-	wrect_t nullrc;
 	int a, x, y, r, g, b;
 	int AmmoWidth;
 
@@ -1261,7 +1289,7 @@ void CHudAmmo::CalcCrosshairSize()
 {
 	const char *size = m_pClCrosshairSize->string;
 
-	if( !strcasecmp(size, "auto") )
+	if( !stricmp(size, "auto") )
 	{
 		if( ScreenWidth < 640 )
 			m_iCrosshairScaleBase = 1024;
@@ -1271,11 +1299,11 @@ void CHudAmmo::CalcCrosshairSize()
 		return;
 	}
 
-	if( !strcasecmp( size, "large" ))
+	if( !stricmp ( size, "large" ))
 		m_iCrosshairScaleBase = 640;
-	else if( !strcasecmp( size, "medium" ))
+	else if( !stricmp ( size, "medium" ))
 		m_iCrosshairScaleBase = 800;
-	else if( !strcasecmp( size, "large" ))
+	else if( !stricmp ( size, "large" ))
 		m_iCrosshairScaleBase = 1024;
 
 	return;

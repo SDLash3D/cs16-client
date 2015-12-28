@@ -10,7 +10,7 @@ void IN_MouseEvent( int mstate )
 
 // Stubs
 
-extern "C"void IN_ClearStates ( void )
+extern "C" void IN_ClearStates ( void )
 {
 	//gEngfuncs.Con_Printf("IN_ClearStates\n");
 }

@@ -251,6 +251,7 @@ int CHudScoreboard :: Draw( float fTime )
 			FillRGBA( xstart, ypos, xend - xstart, ROW_GAP, 0, 0, 255, 70 );
 		}
 
+
 		// draw their name (left to right)
 		gHUD.DrawHudString(       NAME_POS_START(),   ypos, NAME_POS_END(),   team_info->name,   r, g, b );
 		gHUD.DrawHudNumberString( KILLS_POS_START(),  ypos, KILLS_POS_END(),  team_info->frags,  r, g, b );
@@ -351,7 +352,11 @@ int CHudScoreboard :: DrawPlayers( int xpos, float list_slot, int nameoffset, ch
 		else if ( pl_info->thisplayer ) // if it is their name, draw it a different color
 		{
 			// overlay the background in blue,  then draw the score text over it
-			FillRGBA( xstart, ypos, xend - xstart, ROW_GAP, 0, 0, 255, 70 );
+
+         if (g_PlayerExtraInfo[best_player].teamnumber == 2)
+			   FillRGBA( xstart, ypos, xend - xstart, ROW_GAP, 0, 0, 255, 70 );
+         else
+            FillRGBA (xstart, ypos, xend - xstart, ROW_GAP, 255, 0, 0, 70);
 		}
 
 

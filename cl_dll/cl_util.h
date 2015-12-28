@@ -83,8 +83,8 @@ inline struct cvar_s *CVAR_CREATE( const char *cv, const char *val, const int fl
 extern float color[3]; // hud.cpp
 
 // Gets the height & width of a sprite,  at the specified frame
-inline int SPR_Height( HSPRITE x, int f )	{ return gEngfuncs.pfnSPR_Height(x, f); }
-inline int SPR_Width( HSPRITE x, int f )	{ return gEngfuncs.pfnSPR_Width(x, f); }
+inline int SPR_Height( SptiteHandle_t x, int f )	{ return gEngfuncs.pfnSPR_Height(x, f); }
+inline int SPR_Width( SptiteHandle_t x, int f )	{ return gEngfuncs.pfnSPR_Width(x, f); }
 
 inline 	client_textmessage_t	*TextMessageGet( const char *pName ) { return gEngfuncs.pfnTextMessageGet( pName ); }
 inline 	int						TextMessageDrawChar( int x, int y, int number, int r, int g, int b ) 
@@ -95,7 +95,7 @@ inline 	int						TextMessageDrawChar( int x, int y, int number, int r, int g, in
 inline int DrawConsoleString( int x, int y, const char *string )
 {
 	if( hud_textmode->value )
-		return gHUD.DrawHudString( x, y, 9999, (char*)string, 255*color[0], 255*color[1], 255*color[2]);
+		return gHUD.DrawHudString( x, y, 9999, (char*)string, 255 * (int) color[0], 255 * (int) color[1], 255 * (int)color[2]);
 	else
 		return gEngfuncs.pfnDrawConsoleString( x, y, (char*) string );
 	
@@ -106,7 +106,8 @@ inline int DrawSetTextColor(float r, float g, float b)
 		color[0]=r, color[1] = g, color[2] = b;
 	else
 		gEngfuncs.pfnDrawSetTextColor( r, g, b );
-		
+
+   return 0;
 }
 inline void GetConsoleStringSize( const char *string, int *width, int *height )
 {
@@ -176,4 +177,4 @@ inline void UnpackRGB(int &r, int &g, int &b, unsigned long ulRGB)\
 	b = ulRGB & 0xFF;\
 }
 
-HSPRITE LoadSprite(const char *pszName);
+SptiteHandle_t LoadSprite(const char *pszName);

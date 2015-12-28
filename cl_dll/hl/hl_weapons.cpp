@@ -1264,8 +1264,8 @@ void HUD_WeaponsPostThink( local_state_s *from, local_state_s *to, usercmd_t *cm
 	flags = from->client.iuser3;
 	player.m_bCanShoot	= flags & PLAYER_CAN_SHOOT;
 	g_iFreezeTimeOver	= flags & PLAYER_FREEZE_TIME_OVER;
-	g_bInBombZone		= flags & PLAYER_IN_BOMB_ZONE;
-	g_bHoldingShield	= flags & PLAYER_HOLDING_SHIELD;
+	g_bInBombZone		= !!(flags & PLAYER_IN_BOMB_ZONE);
+	g_bHoldingShield	= !!(flags & PLAYER_HOLDING_SHIELD);
 
 	// Point to current weapon object
 	if ( from->client.m_iId )

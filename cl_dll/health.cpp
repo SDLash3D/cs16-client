@@ -674,4 +674,6 @@ int CHudHealth :: MsgFunc_ClCorpse(const char *pszName, int iSize, void *pbuf)
 	else strncpy( szModel, sPlayerModelFiles[0], sizeof(szModel) ); // player.mdl
 
 	CreateCorpse( &origin, &angles, szModel, delay, sequence, classID );
+
+   return 1;
 }

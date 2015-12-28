@@ -18,7 +18,10 @@ GNU General Public License for more details.
 #include "cl_dll.h"
 #include "vgui_parser.h"
 
+#include "unicode_strtools.h"
+
 #define MAX_LOCALIZED_TITLES 512
+
 
 struct locString
 {
@@ -44,26 +47,39 @@ const char* Localize( const char* string )
 
 void Localize_Init(  )
 {
-	char *filename = "resource/cstrike_english.txt";
-	char *pfile;
+	wchar_t *filename = L"cstrike/resource/cstrike_english.txt";
+
+   FILE *wf = _wfopen (filename, L"rb");
+
+   if (!wf)
+   {
+      gEngfuncs.Con_Printf ("Couldn't open file %s. Strings will not be localized!.\n", filename);
+      return;
+   }
+
+   fseek (wf, 0L, SEEK_END);
+   int length = ftell (wf);
+   fseek (wf, 0L, SEEK_SET);
+
+   wchar_t *unicode_buffer = new wchar_t[length];
+   fread (unicode_buffer, 1, length, wf);
+
+   fclose (wf);
+   unicode_buffer++;
+
+   int ansi_length = length / 2;
+
+   char *ansi_buffer = new char[ansi_length];
+   Q_UTF16ToUTF8 (unicode_buffer, ansi_buffer, ansi_length, STRINGCONVERT_ASSERT_REPLACE);
+
 	char token[1024];
 	giLastTitlesTXT = 0;
 
-	char *afile = (char *)gEngfuncs.COM_LoadFile( filename, 5, NULL );
-
-	pfile = afile;
-
-	if (!pfile)
-	{
-		gEngfuncs.Con_Printf("Couldn't open file %s. Strings will not be localized!.\n", filename );
-		return;
-	}
-
 	while( true )
 	{
-		pfile = gEngfuncs.COM_ParseFile( pfile, token );
+      ansi_buffer = gEngfuncs.COM_ParseFile(ansi_buffer, token );
 
-		if( !pfile) break;
+		if( !ansi_buffer) break;
 
 		if( strstr(token, "TitlesTXT") )
 		{
@@ -72,17 +88,18 @@ void Localize_Init(  )
 				gEngfuncs.Con_Printf( "Too many localized titles.txt strings\n");
 				break;
 			}
+			strcpy(gTitlesTXT[giLastTitlesTXT].toLocalize, &token[18]);
+         ansi_buffer = gEngfuncs.COM_ParseFile(ansi_buffer, gTitlesTXT[giLastTitlesTXT].localizedString );
 
-			strcpy(gTitlesTXT[giLastTitlesTXT].toLocalize, token);
-			pfile = gEngfuncs.COM_ParseFile( pfile, gTitlesTXT[giLastTitlesTXT].localizedString );
-
-			if( !pfile ) break;
+			if( !ansi_buffer) break;
 
 			giLastTitlesTXT++;
 		}
 	}
 
-	gEngfuncs.COM_FreeFile( afile );
+   free (ansi_buffer);
+ //  free (unicode_buffer);
+  
 }
 
 void Localize_Free( )

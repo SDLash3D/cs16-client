@@ -58,7 +58,7 @@ float rel_pitch;
 
 void IN_ToggleButtons( float forwardmove, float sidemove )
 {
-	static uint moveflags = T | S;
+	static unsigned int moveflags = T | S;
 
 	if( forwardmove )
 		moveflags &= ~T;

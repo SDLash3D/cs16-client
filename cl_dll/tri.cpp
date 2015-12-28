@@ -26,6 +26,9 @@ extern "C"
 {
 	void DLLEXPORT HUD_DrawNormalTriangles( void );
 	void DLLEXPORT HUD_DrawTransparentTriangles( void );
+
+   void AngleMatrix (const vec3_t angles, float (*matrix)[4]);
+   void VectorTransform (const vec3_t in1, float in2[3][4], vec3_t out);
 };
 
 //#define TEST_IT
@@ -123,7 +126,7 @@ void DrawRain( void )
 	float visibleHeight = Rain.globalHeight - SNOWFADEDIST;
 
 	// usual triapi stuff
-	HSPRITE hsprTexture;
+	SptiteHandle_t hsprTexture;
 	if( Rain.weatherMode == 0 )
 		hsprTexture = LoadSprite("sprites/effects/rain.spr");
 	else
@@ -230,7 +233,7 @@ void DrawFXObjects( void )
 	float curtime = gEngfuncs.GetClientTime();
 
 	// usual triapi stuff
-	HSPRITE hsprTexture = LoadSprite("sprites/effects/ripple.spr");
+	SptiteHandle_t hsprTexture = LoadSprite("sprites/effects/ripple.spr");
 	const model_s *pTexture = gEngfuncs.GetSpritePointer( hsprTexture );
 	gEngfuncs.pTriAPI->SpriteTexture( (struct model_s *)pTexture, 0 );
 	gEngfuncs.pTriAPI->RenderMode( kRenderTransAdd );

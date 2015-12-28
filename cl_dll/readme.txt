@@ -8,21 +8,21 @@ how it communicates with the half-life game engine.
 Engine callback functions:
 
 Drawing functions:
-	HSPRITE SPR_Load( char *picname );
+	SptiteHandle_t SPR_Load( char *picname );
 		Loads a sprite into memory, and returns a handle to it.
 
-	int  SPR_Frames( HSPRITE sprite );
+	int  SPR_Frames( SptiteHandle_t sprite );
 		Returns the number of frames stored in the specified sprite.
 
-	int  SPR_Height( HSPRITE x, int frame )
+	int  SPR_Height( SptiteHandle_t x, int frame )
 		Returns the height, in pixels, of a sprite at the specified frame.  
 		Returns 0 is the frame number or the sprite handle is invalid.
 
-	int  SPR_Width( HSPRITE x, int f )
+	int  SPR_Width( SptiteHandle_t x, int f )
 		Returns the width, in pixels, of a sprite at the specified frame.  
 		Returns 0 is the frame number or the sprite handle is invalid.
 
-	int  SPR_Set( HSPRITE sprite, int r, int g, int b );
+	int  SPR_Set( SptiteHandle_t sprite, int r, int g, int b );
 		Prepares a sprite about to be drawn.  RBG color values are applied to the sprite at this time.
 
 
