@@ -125,7 +125,6 @@ void CC4::PrimaryAttack(void)
 
 	if (!m_bStartedArming)
 	{
-#ifndef C4MADNESS
 		if (!onBombZone)
 		{
 			ClientPrint(m_pPlayer->pev, HUD_PRINTCENTER, "#C4_Plant_At_Bomb_Spot");
@@ -140,7 +139,7 @@ void CC4::PrimaryAttack(void)
 			return;
 		}
 		g_engfuncs.pfnSetClientMaxspeed(ENT(m_pPlayer->pev), 1);
-#endif
+
 		m_bStartedArming = true;
 		m_bBombPlacedAnimation = false;
 		m_fArmedTime = gpGlobals->time + 3;
@@ -152,7 +151,6 @@ void CC4::PrimaryAttack(void)
 	}
 	else
 	{
-#ifndef C4MADNESS
 		if (!onGround || !onBombZone)
 		{
 			if (onBombZone)
@@ -173,7 +171,7 @@ void CC4::PrimaryAttack(void)
 
 			return;
 		}
-#endif
+
 		if (gpGlobals->time > m_fArmedTime)
 		{
 			if (m_bStartedArming == true)

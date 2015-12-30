@@ -28,6 +28,8 @@ int CHudSniperScope::Init()
 {
 	gHUD.AddHudElem(this);
 	m_iFlags = HUD_ACTIVE;
+
+   return 1;
 }
 
 int CHudSniperScope::VidInit()
@@ -42,6 +44,7 @@ int CHudSniperScope::VidInit()
 	centerx = ScreenWidth/2;
 	centery = ScreenHeight/2;
 
+   return 1;
 }
 
 int CHudSniperScope::Draw(float flTime)
@@ -81,4 +84,6 @@ int CHudSniperScope::Draw(float flTime)
 	gEngfuncs.pTriAPI->Begin(TRI_QUADS);
 	Quad(right, 0, ScreenWidth, ScreenHeight);
 	gEngfuncs.pTriAPI->End();
+
+   return 1;
 }

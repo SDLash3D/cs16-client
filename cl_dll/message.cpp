@@ -140,8 +140,8 @@ int CHudMessage::YPosition( float y, int height )
 
 void CHudMessage::MessageScanNextChar( void )
 {
-	int srcRed, srcGreen, srcBlue, destRed, destGreen, destBlue;
-	int blend;
+	int srcRed = 0, srcGreen = 0, srcBlue = 0, destRed = 0, destGreen = 0, destBlue = 0;
+	int blend = 0;
 
 	srcRed = m_parms.pMessage->r1;
 	srcGreen = m_parms.pMessage->g1;

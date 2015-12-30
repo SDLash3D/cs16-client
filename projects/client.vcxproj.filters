@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{3427cc6b-55ed-45f0-8e57-29a32ec766fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{67dd78a9-04e0-465e-887f-a6abf6d402a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\weapons">
+      <UniqueIdentifier>{bf8c2f92-98f5-45fb-95c5-5f4261d4bdff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs">
+      <UniqueIdentifier>{6e197b5b-a841-469a-b725-3594b0b0bd20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pm">
+      <UniqueIdentifier>{bf0db874-9883-43e7-8194-300d58086c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\events">
+      <UniqueIdentifier>{f9759b8f-eb75-4cd4-bf55-f4e5782770a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\events">
+      <UniqueIdentifier>{ddfe19a6-e8c1-41e9-a4d0-5b7c49f0b9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\hl">
+      <UniqueIdentifier>{1152c56f-ba6f-4902-bb09-36e4513fefdd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\interface.cpp">
+      <Filter>src\gs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\ev_cs16.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_ak47.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_aug.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_awp.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_createexplo.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_createsmoke.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_deagle.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_decal_reset.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_elite_left.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_elite_right.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_famas.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_fiveseven.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_g3sg1.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_galil.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_glock18.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_knife.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_m3.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_m4a1.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_m249.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_mac10.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_mp5n.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_p90.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_p228.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_scout.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_sg550.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_sg552.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_tmp.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_ump45.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_usp.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_vehicle.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\event_xm1014.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events\hl_events.cpp">
+      <Filter>src\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ak47.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_aug.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_awp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_c4.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_deagle.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_elite.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_famas.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_fiveseven.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_flashbang.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_g3sg1.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_galil.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_glock18.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_hegrenade.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_knife.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m3.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m4a1.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m249.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mac10.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mp5navy.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p90.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p228.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_scout.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg550.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg552.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_smokegrenade.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_tmp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ump45.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_usp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_xm1014.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_debug.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_math.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_shared.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\ammo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\ammo_secondary.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\ammohistory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\battery.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\cdll_int.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\com_weapons.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\death.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\demo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\entity.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\ev_common.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\ev_hldm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\events.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\flashlight.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\GameStudioModelRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\geiger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\health.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud_msg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud_redraw.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud_servers.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud_spectator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud_update.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\in_camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\input.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\input_xash3d.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\inputw32.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\menu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\message.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\money.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\MOTD.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\nvg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\overview.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\parsemsg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\radio.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\rain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\saytext.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\scoreboard.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\scoreboard_stub.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\sniperscope.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\soundsystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\status_icons.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\statusbar.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\studio_util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\StudioModelRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\text_message.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\timer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\train.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\tri.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\vgui_parser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\view.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hl\hl_baseentity.cpp">
+      <Filter>src\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hl\hl_objects.cpp">
+      <Filter>src\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hl\hl_weapons.cpp">
+      <Filter>src\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\unicode_strtools.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\cl_dll\events\events.h">
+      <Filter>inc\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\ammo.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\ammohistory.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\camera.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\cl_dll.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\cl_util.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\com_weapons.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\demo.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\ev_hldm.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\eventscripts.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\GameStudioModelRenderer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\health.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\hud.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\hud_iface.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\hud_servers.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\hud_servers_priv.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\hud_spectator.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\in_defs.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\kbutton.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\overview.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\parsemsg.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\rain.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\studio_util.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\StudioModelRenderer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\tf_defs.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\util_vector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\vgui_parser.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\view.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\wrect.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cl_dll\unicode_strtools.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

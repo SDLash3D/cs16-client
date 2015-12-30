@@ -23,6 +23,8 @@ int CHudNVG::Init()
 	m_iFlags = HUD_ACTIVE;
 	m_iEnable = 0;
 	m_iAlpha = 110; // 220 is max, 30 is min
+
+   return 1;
 }
 
 int CHudNVG::Draw(float flTime)

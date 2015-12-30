@@ -6918,7 +6918,7 @@ void CBasePlayer::AddAutoBuyData(const char *string)
 		if (len > 0)
 			m_autoBuyString[len] = ' ';
 
-		strncat(m_autoBuyString, string, MAX_AUTOBUY_LENGTH - len-1);//strncat вставляет терминальный 0.
+		strncat(m_autoBuyString, string, MAX_AUTOBUY_LENGTH - len-1);
 	}
 }
 
@@ -7345,6 +7345,10 @@ AutoBuyInfoStruct *CBasePlayer::GetAutoBuyCommandInfo(const char *command)
 	while (ret == NULL)
 	{
 		temp = &(g_autoBuyInfo[i]);
+
+      if (temp && !temp->m_class)
+         break;
+
 		++i;
 
 		if (stricmp(temp->m_command, command) == 0)

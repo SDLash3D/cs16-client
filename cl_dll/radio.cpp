@@ -54,6 +54,8 @@ int CHudRadio::MsgFunc_ReloadSound(const char *pszName, int iSize, void *pbuf)
 
 	strcpy( m_sentence,  (char*)(isNotShotgun? "weapons/generic_reload.wav" : "weapons/generic_shot_reload.wav"));
 	m_iFlags = HUD_ACTIVE;
+
+   return 1;
 }
 
 void Broadcast( const char *sentence )

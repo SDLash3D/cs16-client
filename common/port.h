@@ -117,9 +117,9 @@ GNU General Public License for more details.
 	#pragma warning(disable : 4054)	// type cast' : from function pointer
 	#pragma warning(disable : 4310)	// cast truncates constant value
 
-	#define HSPRITE WINAPI_HSPRITE
+	#define SptiteHandle_t WINAPI_HSPRITE
 	#include <windows.h>
-	#undef HSPRITE
+	#undef SptiteHandle_t
 
     #define OS_LIB_EXT "dll"
     #define MENUDLL "menu." OS_LIB_EXT

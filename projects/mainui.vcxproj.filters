@@ -15,108 +15,93 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basemenu.h">
+    <ClInclude Include="..\mainui\basemenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="enginecallback.h">
+    <ClInclude Include="..\mainui\enginecallback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="extdll.h">
+    <ClInclude Include="..\mainui\extdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu_btnsbmp_table.h">
+    <ClInclude Include="..\mainui\menu_btnsbmp_table.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu_strings.h">
+    <ClInclude Include="..\mainui\menu_strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menufont.h">
+    <ClInclude Include="..\mainui\menufont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui_title_anim.h">
+    <ClInclude Include="..\mainui\ui_title_anim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="..\mainui\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="basemenu.cpp">
+    <ClCompile Include="..\mainui\basemenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_advcontrols.cpp">
+    <ClCompile Include="..\mainui\menu_advcontrols.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_audio.cpp">
+    <ClCompile Include="..\mainui\menu_audio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_btns.cpp">
+    <ClCompile Include="..\mainui\menu_btns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_configuration.cpp">
+    <ClCompile Include="..\mainui\menu_configuration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_controls.cpp">
+    <ClCompile Include="..\mainui\menu_controls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_creategame.cpp">
+    <ClCompile Include="..\mainui\menu_creategame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_credits.cpp">
+    <ClCompile Include="..\mainui\menu_credits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_customgame.cpp">
+    <ClCompile Include="..\mainui\menu_gameoptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_gameoptions.cpp">
+    <ClCompile Include="..\mainui\menu_internetgames.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_internetgames.cpp">
+    <ClCompile Include="..\mainui\menu_langame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_langame.cpp">
+    <ClCompile Include="..\mainui\menu_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_loadgame.cpp">
+    <ClCompile Include="..\mainui\menu_multiplayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_main.cpp">
+    <ClCompile Include="..\mainui\menu_playersetup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_multiplayer.cpp">
+    <ClCompile Include="..\mainui\menu_strings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_newgame.cpp">
+    <ClCompile Include="..\mainui\menu_video.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_playersetup.cpp">
+    <ClCompile Include="..\mainui\menu_vidmodes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_savegame.cpp">
+    <ClCompile Include="..\mainui\menu_vidoptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_saveload.cpp">
+    <ClCompile Include="..\mainui\udll_int.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_strings.cpp">
+    <ClCompile Include="..\mainui\ui_title_anim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu_video.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu_vidmodes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu_vidoptions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="udll_int.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ui_title_anim.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.cpp">
+    <ClCompile Include="..\mainui\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

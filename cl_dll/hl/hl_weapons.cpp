@@ -388,7 +388,7 @@ void CBasePlayerWeapon::SendWeaponAnim( int iAnim, int skiplocal )
 	HUD_SendWeaponAnim( iAnim, m_pPlayer->pev->body, 0 );
 }
 
-Vector CBaseEntity::FireBullets3 ( Vector vecSrc, Vector vecDirShooting, float flSpread, float flDistance, int iPenetration, int iBulletType, int iDamage, float flRangeModifier, entvars_t *pevAttacker, bool bPistol, int shared_rand )
+Vector CBaseEntity::FireBullets3 (Vector vecSrc, Vector vecDirShooting, float flSpread, float flDistance, int iPenetration, int iBulletType, int iDamage, float flRangeModifier, entvars_t *pevAttacker, bool bPistol, int shared_rand)
 {
 	int iOriginalPenetration = iPenetration;
 	int iPenetrationPower;
@@ -981,7 +981,6 @@ void UTIL_MakeVectors( const Vector &vec )
 {
 	gEngfuncs.pfnAngleVectors( vec, gpGlobals->v_forward, gpGlobals->v_right, gpGlobals->v_up );
 }
-
 
 /*
 =====================

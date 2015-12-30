@@ -274,5 +274,5 @@ stub functions for such things as precaching.  So we don't have to modify weapon
 int				stub_PrecacheModel		( char* s ) { return 0; }
 int				stub_PrecacheSound		( char* s ) { return 0; }
 unsigned short	stub_PrecacheEvent		( int type, const char *s ) { return 0; }
-const char		*stub_NameForFunction	( u_int32_t function ) { return "func"; }
+const char		*stub_NameForFunction	( unsigned int function ) { return "func"; }
 void			stub_SetModel			( edict_t *e, const char *m ) {}

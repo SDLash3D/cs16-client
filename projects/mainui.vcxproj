@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\mainui\basemenu.h" />
+    <ClInclude Include="..\mainui\enginecallback.h" />
+    <ClInclude Include="..\mainui\extdll.h" />
+    <ClInclude Include="..\mainui\menufont.h" />
+    <ClInclude Include="..\mainui\menu_btnsbmp_table.h" />
+    <ClInclude Include="..\mainui\menu_strings.h" />
+    <ClInclude Include="..\mainui\ui_title_anim.h" />
+    <ClInclude Include="..\mainui\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\mainui\basemenu.cpp" />
+    <ClCompile Include="..\mainui\menu_advcontrols.cpp" />
+    <ClCompile Include="..\mainui\menu_audio.cpp" />
+    <ClCompile Include="..\mainui\menu_btns.cpp" />
+    <ClCompile Include="..\mainui\menu_configuration.cpp" />
+    <ClCompile Include="..\mainui\menu_controls.cpp" />
+    <ClCompile Include="..\mainui\menu_creategame.cpp" />
+    <ClCompile Include="..\mainui\menu_credits.cpp" />
+    <ClCompile Include="..\mainui\menu_gameoptions.cpp" />
+    <ClCompile Include="..\mainui\menu_internetgames.cpp" />
+    <ClCompile Include="..\mainui\menu_langame.cpp" />
+    <ClCompile Include="..\mainui\menu_main.cpp" />
+    <ClCompile Include="..\mainui\menu_multiplayer.cpp" />
+    <ClCompile Include="..\mainui\menu_playersetup.cpp" />
+    <ClCompile Include="..\mainui\menu_strings.cpp" />
+    <ClCompile Include="..\mainui\menu_video.cpp" />
+    <ClCompile Include="..\mainui\menu_vidmodes.cpp" />
+    <ClCompile Include="..\mainui\menu_vidoptions.cpp" />
+    <ClCompile Include="..\mainui\udll_int.cpp" />
+    <ClCompile Include="..\mainui\ui_title_anim.cpp" />
+    <ClCompile Include="..\mainui\utils.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{90F48F37-D9F8-4F36-B04F-1FC8CC834424}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mainui</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../engine;../common;../pm_shared</IncludePath>
+    <TargetName>menu</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);../engine;../common;../pm_shared</IncludePath>
+    <TargetName>menu</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>XASH_VGUI;XASH_SDL;WIN32;MAINUI_EXPORTS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>XASH_VGUI;WIN32;MAINUI_EXPORTS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -132,10 +132,10 @@ public:
 	wrect_t m_hradopaque;
 
 private:
-	HSPRITE m_hSprite;
-	HSPRITE m_hDamage;
-	HSPRITE m_hRadar;
-	HSPRITE m_hRadaropaque;
+	SptiteHandle_t m_hSprite;
+	SptiteHandle_t m_hDamage;
+	SptiteHandle_t m_hRadar;
+	SptiteHandle_t m_hRadaropaque;
 	
 	DAMAGE_IMAGE m_dmg[NUM_DMG_TYPES];
 	float m_flTimeFlash;

@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{54a91ea5-da7e-4bfc-bff1-49b6849cae68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{4f1623b5-c7d7-4a17-ac83-6b45430a1941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\weapons">
+      <UniqueIdentifier>{e1c83c08-214c-4a1a-ae54-7290070c18f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pm">
+      <UniqueIdentifier>{d770b270-f8f0-488b-9081-2e6e7b8b2d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs">
+      <UniqueIdentifier>{29cd80f8-8344-4833-942a-8c3882a760de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\pm">
+      <UniqueIdentifier>{39a0bd90-8784-40c3-af23-3b2ea4f8b789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\gs">
+      <UniqueIdentifier>{c6847509-22cf-4107-b200-87c1ec5f7665}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dlls\airtank.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\ammo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\animating.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\animation.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\bmodels.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\buttons.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\cbase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\client.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\combat.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\doors.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\effects.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\explode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\func_break.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\func_tank.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\game.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\gamerules.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\ggrenade.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\globals.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\h_ai.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\h_battery.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\h_cycler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\h_export.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\healthkit.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\hintmessage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\hostage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\hostage_localnav.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\items.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\lights.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\mapinfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\maprules.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\MemPool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\mortar.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\mpstubb.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\multiplay_gamerules.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\observer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\pathcorner.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\perf_counter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\plane.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\plats.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\player.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\singleplay_gamerules.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\skill.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\sound.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\soundent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\spectator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\subs.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\training_gamerules.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\triggers.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\vehicle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\weapons.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\world.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ak47.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_aug.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_awp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_c4.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_deagle.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_elite.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_famas.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_fiveseven.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_flashbang.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_g3sg1.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_galil.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_glock18.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_hegrenade.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_knife.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m3.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m4a1.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_m249.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mac10.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_mp5navy.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p90.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_p228.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_scout.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg550.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_sg552.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_smokegrenade.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_tmp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_ump45.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_usp.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dlls\wpn_shared\wpn_xm1014.cpp">
+      <Filter>src\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_debug.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_math.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_shared.c">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_shared\voice_banmgr.cpp">
+      <Filter>src\gs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_shared\voice_gamemgr.cpp">
+      <Filter>src\gs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dlls\activity.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\activitymap.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\animation.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\basemonster.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\cbase.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\cdll_dll.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\client.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\decals.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\doors.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\effects.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\enginecallback.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\explode.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\extdll.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\func_break.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\game.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\gamerules.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\hintmessage.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\hostage.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\items.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\mapinfo.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\maprules.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\MemPool.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\monsterevent.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\monsters.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\nodes.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\perf_counter.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\plane.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\player.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\saverestore.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\schedule.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\scriptevent.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\skill.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\soundent.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\spectator.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\stdafx.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\talkmonster.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\training_gamerules.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\trains.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\util.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\vector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\vehicle.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dlls\weapons.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_shared\bitvec.h">
+      <Filter>inc\gs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_shared\voice_banmgr.h">
+      <Filter>inc\gs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_shared\voice_common.h">
+      <Filter>inc\gs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_shared\voice_gamemgr.h">
+      <Filter>inc\gs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_shared\voice_status.h">
+      <Filter>inc\gs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_debug.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_defs.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_info.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_materials.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_movevars.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pm_shared\pm_shared.h">
+      <Filter>inc\pm</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

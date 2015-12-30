@@ -29,7 +29,17 @@
 #include "ammohistory.h"
 #include "eventscripts.h"
 #include "com_weapons.h"
+
+#include <math.h>
 //#include "vgui_TeamFortressViewport.h"
+
+#ifdef _WIN32
+static inline void sincosf (float rad, float *sine, float *cosine)
+{
+	*sine = sinf (rad);
+	*cosine = cosf (rad);
+}
+#endif
 
 WEAPON *gpActiveSel;	// NULL means off, 1 means just the menu bar, otherwise
 						// this points to the active weapon menu item
@@ -232,7 +242,7 @@ WEAPON* WeaponsResource :: GetNextActivePos( int iSlot, int iSlotPos )
 
 int giBucketHeight, giBucketWidth, giABHeight, giABWidth; // Ammo Bar width and height
 
-HSPRITE ghsprBuckets;					// Sprite for top row of weapons menu
+SptiteHandle_t ghsprBuckets;					// Sprite for top row of weapons menu
 
 DECLARE_MESSAGE(m_Ammo, CurWeapon );	// Current weapon and clip
 DECLARE_MESSAGE(m_Ammo, WeaponList);	// new weapon type
@@ -426,7 +436,7 @@ void CHudAmmo::Think(void)
 // Helper function to return a Ammo pointer from id
 //
 
-HSPRITE* WeaponsResource :: GetAmmoPicFromWeapon( int iAmmoId, wrect_t& rect )
+SptiteHandle_t* WeaponsResource :: GetAmmoPicFromWeapon( int iAmmoId, wrect_t& rect )
 {
 	for ( int i = 0; i < MAX_WEAPONS; i++ )
 	{
@@ -664,6 +674,8 @@ int CHudAmmo::MsgFunc_CurWeapon(const char *pszName, int iSize, void *pbuf )
 	else
 	{
 		wrect_t nullrc;
+      nullrc.bottom = nullrc.right = nullrc.left = nullrc.top = 0;
+
 		SetCrosshair( 0, nullrc, 0, 0, 0);
 	}
 
@@ -719,6 +731,7 @@ int CHudAmmo::MsgFunc_Crosshair(const char *pszName, int iSize, void *pbuf)
 	{
 		m_bDrawCrosshair = false;
 	}
+   return 1;
 }
 
 int CHudAmmo::MsgFunc_Brass( const char *pszName, int iSize, void *pbuf )
@@ -745,7 +758,7 @@ int CHudAmmo::MsgFunc_Brass( const char *pszName, int iSize, void *pbuf )
 	int PlayerID = READ_BYTE();
 
 	float sin, cos, x, y;
-	sincosf( Rotation, &sin, &cos );
+   sincosf ( Rotation, &sin, &cos );
 	x = -9.0 * sin;
 	y = 9.0 * cos;
 
@@ -1029,7 +1042,7 @@ void CHudAmmo::UserCmd_Rebuy()
 		return;
 	}
 
-	strcpy(szCmd, "cl_setrebuy");
+	strcpy(szCmd, "cl_setrebuy \"");
 
 	while(pfile = gEngfuncs.COM_ParseFile( pfile, token ))
 	{
@@ -1037,6 +1050,7 @@ void CHudAmmo::UserCmd_Rebuy()
 		strcat(szCmd, " ");
 		strcat(szCmd, token);
 	}
+	strcat (szCmd, "\"");
 
 	ConsolePrint(szCmd);
 	gEngfuncs.pfnClientCmd(szCmd);
@@ -1051,7 +1065,6 @@ void CHudAmmo::UserCmd_Rebuy()
 
 int CHudAmmo::Draw(float flTime)
 {
-	wrect_t nullrc;
 	int a, x, y, r, g, b;
 	int AmmoWidth;
 
@@ -1320,7 +1333,7 @@ void CHudAmmo::CalcCrosshairSize()
 {
 	const char *size = m_pClCrosshairSize->string;
 
-	if( !strcasecmp(size, "auto") )
+	if( !stricmp(size, "auto") )
 	{
 		if( ScreenWidth < 640 )
 			m_iCrosshairScaleBase = 1024;
@@ -1330,11 +1343,11 @@ void CHudAmmo::CalcCrosshairSize()
 		return;
 	}
 
-	if( !strcasecmp( size, "large" ))
+	if( !stricmp ( size, "large" ))
 		m_iCrosshairScaleBase = 640;
-	else if( !strcasecmp( size, "medium" ))
+	else if( !stricmp ( size, "medium" ))
 		m_iCrosshairScaleBase = 800;
-	else if( !strcasecmp( size, "large" ))
+	else if( !stricmp ( size, "large" ))
 		m_iCrosshairScaleBase = 1024;
 
 	return;

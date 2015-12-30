@@ -264,7 +264,7 @@ int CHudMenu::MsgFunc_AllowSpec(const char *pszName, int iSize, void *pbuf)
 {
 	BEGIN_READ( pbuf, iSize );
 
-	m_bAllowSpec = READ_BYTE();
+	m_bAllowSpec = !!READ_BYTE();
 
 	return 1;
 }

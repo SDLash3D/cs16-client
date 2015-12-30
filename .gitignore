@@ -28,3 +28,13 @@
 *.app
 
 *.user
+
+*.sdf
+*.tlog
+*.suo
+*.ilk
+*.opendb
+*.exp
+*.pdb
+*.log
+*.idb
