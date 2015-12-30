@@ -87,5 +87,3 @@ void Localize_Free ()
 {
 	return;
 }
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc.Terms Privacy Security Contact Help
