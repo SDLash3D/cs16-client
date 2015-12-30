@@ -36,3 +36,5 @@
 *.opendb
 *.exp
 *.pdb
+*.log
+*.idb
