@@ -12,11 +12,15 @@ import android.widget.CompoundButton;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
+import android.util.Log;
+
+import java.io.File;
 
 import in.celest.xash3d.cs16client.R;
 
 public class LauncherActivity extends Activity {
 	// public final static String ARGV = "in.celest.xash3d.MESSAGE";
+	public final static String TAG = "LauncherActivity";
 	static EditText cmdArgs;
 	static SharedPreferences mPref;
     @Override
@@ -45,7 +49,25 @@ public class LauncherActivity extends Activity {
 		
 		if(!(enableCs16nd.isChecked()))
                     argv = argv + " -dll censored";
-		
+                else
+                {
+                    String fullPath = getFilesDir().getAbsolutePath().replace("/files","/lib");
+                    File yapb_hardfp = new File( fullPath + "/libyapb_hardfp.so" );
+                    File yapb = new File( fullPath + "/libyapb.so" );
+                    if( yapb_hardfp.exists() && !yapb_hardfp.isDirectory() )
+                    {
+                        argv = argv + " -dll " + yapb_hardfp.getAbsolutePath();
+                    }
+                    else
+		    {
+			Log.v(TAG, yapb_hardfp.getAbsolutePath() + "not found!");
+			if( yapb.exists() && !yapb.isDirectory() )
+                    	{
+                            argv = argv + " -dll " + yapb.getAbsolutePath();
+                    	}
+			else Log.v(TAG, yapb.getAbsolutePath() + "not found!");
+		    }
+		}
 		if(cmdArgs.length() != 0) intent.putExtra("argv", argv);
 		intent.putExtra("gamedir", "cstrike");
 		intent.putExtra("gamelibdir", getFilesDir().getAbsolutePath().replace("/files","/lib"));
