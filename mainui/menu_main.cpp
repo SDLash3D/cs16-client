@@ -194,7 +194,7 @@ static void UI_Main_ActivateFunc( void )
 
 	if( gpGlobals->developer )
 	{
-		uiMain.console.generic.y = CL_IsActive() ? 480 : 430;
+		uiMain.console.generic.y = CL_IsActive() ? 380 : 430;
 		UI_ScaleCoords( NULL, &uiMain.console.generic.y, NULL, NULL );
 	}
 }
