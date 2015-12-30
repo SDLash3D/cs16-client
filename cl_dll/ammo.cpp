@@ -1042,7 +1042,7 @@ void CHudAmmo::UserCmd_Rebuy()
 		return;
 	}
 
-	strcpy(szCmd, "cl_setrebuy");
+	strcpy(szCmd, "cl_setrebuy \"");
 
 	while(pfile = gEngfuncs.COM_ParseFile( pfile, token ))
 	{
@@ -1050,6 +1050,7 @@ void CHudAmmo::UserCmd_Rebuy()
 		strcat(szCmd, " ");
 		strcat(szCmd, token);
 	}
+	strcat (szCmd, "\"");
 
 	ConsolePrint(szCmd);
 	gEngfuncs.pfnClientCmd(szCmd);
