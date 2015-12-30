@@ -1,12 +1,10 @@
 /*
 vgui_parser.cpp - implementation of VGUI *.res parser
 Copyright (C) 2015 Uncle Mike, a1batross
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -18,27 +16,24 @@ GNU General Public License for more details.
 #include "cl_dll.h"
 #include "vgui_parser.h"
 
-#include "unicode_strtools.h"
-
-#define MAX_LOCALIZED_TITLES 4096
-
+#define MAX_LOCALIZED_TITLES 512
 
 struct locString
 {
 	char toLocalize[256];
-	char localizedString[2048];
+	char localizedString[512];
 };
 
 locString gTitlesTXT[MAX_LOCALIZED_TITLES]; // for localized titles.txt strings
-//locString gCstrikeMsgs[1024]; // for another
+														  //locString gCstrikeMsgs[1024]; // for another
 int giLastTitlesTXT;
-const char* Localize( const char* string )
+const char* Localize (const char* string)
 {
-	StripEndNewlineFromString( (char*)string );
+	StripEndNewlineFromString ((char*)string);
 
-	for( int i = 0; i < giLastTitlesTXT; ++i )
+	for (int i = 0; i < giLastTitlesTXT; ++i)
 	{
-		if( !stricmp(gTitlesTXT[i].toLocalize, string))
+		if (!stricmp (gTitlesTXT[i].toLocalize, string))
 			return gTitlesTXT[i].localizedString;
 	}
 	// nothing was found
@@ -47,66 +42,50 @@ const char* Localize( const char* string )
 
 void Localize_Init ()
 {
-   wchar_t *filename = L"cstrike/resource/cstrike_english.txt";
+	char *filename = "resource/cstrike_english.txt";
+	char *pfile;
+	char token[1024];
+	giLastTitlesTXT = 0;
 
-   FILE *wf = _wfopen (filename, L"rb");
+	char *afile = (char *)gEngfuncs.COM_LoadFile (filename, 5, NULL);
 
-   if (!wf)
-   {
-      gEngfuncs.Con_Printf ("Couldn't open file %s. Strings will not be localized!.\n", filename);
-      return;
-   }
+	pfile = afile;
 
-   fseek (wf, 0L, SEEK_END);
-   int length = ftell (wf);
-   fseek (wf, 0L, SEEK_SET);
+	if (!pfile)
+	{
+		gEngfuncs.Con_Printf ("Couldn't open file %s. Strings will not be localized!.\n", filename);
+		return;
+	}
 
-   wchar_t *unicode_buffer = new wchar_t[length];
-   fread (unicode_buffer, 1, length, wf);
+	while (true)
+	{
+		pfile = gEngfuncs.COM_ParseFile (pfile, token);
 
-   fclose (wf);
-   unicode_buffer++;
+		if (!pfile) break;
 
-   int ansi_length = length / 2;
+		if (strstr (token, "TitlesTXT"))
+		{
+			if (giLastTitlesTXT > MAX_LOCALIZED_TITLES)
+			{
+				gEngfuncs.Con_Printf ("Too many localized titles.txt strings\n");
+				break;
+			}
 
-   char *ansi_buffer = new char[ansi_length];
-   Q_UTF16ToUTF8 (unicode_buffer, ansi_buffer, ansi_length, STRINGCONVERT_ASSERT_REPLACE);
+			strcpy (gTitlesTXT[giLastTitlesTXT].toLocalize, token);
+			pfile = gEngfuncs.COM_ParseFile (pfile, gTitlesTXT[giLastTitlesTXT].localizedString);
 
-   char token[1024];
-   giLastTitlesTXT = 0;
+			if (!pfile) break;
 
-   while (true)
-   {
-      if (giLastTitlesTXT > MAX_LOCALIZED_TITLES)
-      {
-         gEngfuncs.Con_Printf ("Too many localized titles.txt strings\n");
-         break;
-      }
+			giLastTitlesTXT++;
+		}
+	}
 
-      ansi_buffer = gEngfuncs.COM_ParseFile (ansi_buffer, token);
-
-      if (!ansi_buffer) break;
-
-      if (strlen (token) > 5)
-      {
-         if (strstr (token, "TitlesTXT") != NULL)
-            strcpy (gTitlesTXT[giLastTitlesTXT].toLocalize, &token[18]);
-         else
-            strcpy (gTitlesTXT[giLastTitlesTXT].toLocalize, token);
-
-         ansi_buffer = gEngfuncs.COM_ParseFile (ansi_buffer, gTitlesTXT[giLastTitlesTXT].localizedString);
-      }
-
-      if (!ansi_buffer) break;
-
-      giLastTitlesTXT++;
-
-   }
-
-   free (ansi_buffer);
+	gEngfuncs.COM_FreeFile (afile);
 }
 
-void Localize_Free( )
+void Localize_Free ()
 {
 	return;
 }
+Status API Training Shop Blog About Pricing
+© 2015 GitHub, Inc.Terms Privacy Security Contact Help

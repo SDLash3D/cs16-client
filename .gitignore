@@ -34,3 +34,5 @@
 *.suo
 *.ilk
 *.opendb
+*.exp
+*.pdb

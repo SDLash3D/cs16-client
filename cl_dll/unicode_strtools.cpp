@@ -28,6 +28,8 @@
 #include <extdll.h>
 #include "unicode_strtools.h"
 
+#include <wctype.h>
+
 
 /* <f2fc1> ../engine/unicode_strtools.cpp:23 */
 //-----------------------------------------------------------------------------

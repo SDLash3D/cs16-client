@@ -33,6 +33,14 @@
 #include <math.h>
 //#include "vgui_TeamFortressViewport.h"
 
+#ifdef _WIN32
+static inline void sincosf (float rad, float *sine, float *cosine)
+{
+	*sine = sinf (rad);
+	*cosine = cosf (rad);
+}
+#endif
+
 WEAPON *gpActiveSel;	// NULL means off, 1 means just the menu bar, otherwise
 						// this points to the active weapon menu item
 WEAPON *gpLastSel;		// Last weapon menu selection 
@@ -43,30 +51,6 @@ WeaponsResource gWR;
 
 int g_weaponselect = 0;
 int g_iShotsFired;
-
-static inline void SineCosine (float rad, float *sin, float *cos)
-{
-#if defined (_WIN32) && defined (_MSC_VER)
-   __asm
-   {
-      fld dword ptr[rad]
-      fsincos
-      mov ebx, [cos]
-      fstp dword ptr[ebx]
-      mov ebx, [sin]
-      fstp dword ptr[ebx]
-   }
-#elif defined (__linux__) || defined (GCC) || defined (__APPLE__)
-   register double _cos, _sin;
-   __asm __volatile__ ("fsincos" : "=t" (_cos), "=u" (_sin) : "0" (rad));
-
-   *cos = _cos;
-   *sin = _sin;
-#else
-   *sin = sinf (rad);
-   *cos = cosf (rad);
-#endif
-}
 
 void WeaponsResource :: LoadAllWeaponSprites( void )
 {
@@ -774,7 +758,7 @@ int CHudAmmo::MsgFunc_Brass( const char *pszName, int iSize, void *pbuf )
 	int PlayerID = READ_BYTE();
 
 	float sin, cos, x, y;
-   SineCosine ( Rotation, &sin, &cos );
+   sincosf ( Rotation, &sin, &cos );
 	x = -9.0 * sin;
 	y = 9.0 * cos;
 

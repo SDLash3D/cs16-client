@@ -495,9 +495,18 @@ void CBasePlayerWeapon::ResetPlayerShieldAnim(void)
 
 void CBasePlayerWeapon::EjectBrassLate(void)
 {
-	UTIL_MakeVectors(m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle);
-	Vector vecShellVelocity = m_pPlayer->pev->velocity + gpGlobals->v_right * RANDOM_FLOAT(50, 70) + gpGlobals->v_up * RANDOM_FLOAT(100, 150) + gpGlobals->v_forward * 25;
-	//EjectBrass(pev->origin + m_pPlayer->pev->view_ofs + gpGlobals->v_up * -9 + gpGlobals->v_forward * 16 - gpGlobals->v_right * 9, vecShellVelocity, pev->angles.y, m_iShellId, TE_BOUNCE_SHELL);
+	int soundType;
+	Vector vecUp, vecRight, vecShellVelocity;
+
+	UTIL_MakeVectors (m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle);
+
+	vecUp = RANDOM_FLOAT (100, 150) * gpGlobals->v_up;
+	vecRight = RANDOM_FLOAT (50, 70) * gpGlobals->v_right;
+
+	vecShellVelocity = (m_pPlayer->pev->velocity + vecRight + vecUp) + gpGlobals->v_forward * 25;
+	soundType = (m_iId == WEAPON_XM1014 || m_iId == WEAPON_M3) ? 2 : 1;
+
+	EjectBrass (pev->origin + m_pPlayer->pev->view_ofs + gpGlobals->v_up * -9 + gpGlobals->v_forward * 16, gpGlobals->v_right * -9, vecShellVelocity, pev->angles.y, m_iShellId, soundType, m_pPlayer->entindex ());
 }
 
 bool CBasePlayerWeapon::ShieldSecondaryFire(int up_anim, int down_anim)
