@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CS16Client</string>
+    <string name="title_activity_launcher">CS16Client Launcher</string>
+    <string name="launch_button">Starte cs16-klient!</string>
+    <string name="cmd_args_text">Kommando linien argumente</string>
+    <string name="cmd_args_text2">Nicht berüheren wenn du nicht weißt warum du das brauchst!</string>
+    <string name="not_found_msg">Nicht gefunden. Prüfe deine APK oder wähle einen anderen Server aus</string>
+    <string name="not_found_title">Irgendetwas ist schief gelaufen...</string>
+    <string name="not_implemented_msg">Dieses Feature ist noch nicht implementiert.</string>
+    <string name="not_implemented_title">Nicht implementiert!</string>
+	<string name="enablezbot">Aktiviere ZBot bots</string>
+	<string name="enableyapb">Aktiviere YaPB bots</string>
+	<string name="defCmdArgs">-konsole -spiel cstrike -bots, u.s.w</string>
+	<string name="basedir_text">Setze Pfad zu Spieleverzeichnis:</string>
+	<string name="basedir_text2">Leer lassen, um Xash3D Android preferences zu benutzen</string>
+	<!--<string name="ad_unit_id">Не дам! :P</string>-->
+    <!--
+	<string name="text_shortcut">SoHL shortcut</string>
+	<string name="shortcut_button_save">Save shortcut</string>
+	<string name="gamedir">Mod Verzeichnis</string>
+	<string name="shortcut_name">Shortcut Name</string>-->
+</resources>
