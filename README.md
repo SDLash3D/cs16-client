@@ -1,4 +1,4 @@
-![CS1.6 Logo](https://media.toggle.com/000/970/956/a26_6c4_60_60-counter-strike.jpg) 
+![CS1.6 Logo](https://raw.githubusercontent.com/SDLash3D/cs16-client/master/android/res/drawable-xhdpi/ic_launcher.png)
 # CS1.6-Client [Android]
 
 Counter-Strike 1.6 client.dll rewrite project.
