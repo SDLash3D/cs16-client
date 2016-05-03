@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+
+    <string name="app_name">CS16客户端</string>
+
+    <string name="title_activity_launcher">CS16客户端启动器</string>
+
+    <string name="launch_button">启动 CS 1.6!</string>
+
+    <string name="cmd_args_text">命令行参数:</string>
+
+    <string name="cmd_args_text2">如果不清楚不要随意修改！</string>
+
+    <string name="not_found_msg">什么都没有找到…请检查您的APK或选择另一台服务器 </string>
+
+    <string name="not_found_title">出现了一些问题……</string>
+
+    <string name="not_implemented_msg">此功能尚未实现</string>
+
+    <string name="not_implemented_title">未实现！</string>
+
+	<string name="enablezbot">使用 ZBot 机器人</string>
+
+	<string name="enableyapb">使用 YaPB 机器人</string>
+
+	<string name="defCmdArgs">-console -game cstrike -bots, etc</string>
+
+	<string name="basedir_text">设置游戏路径：</string>
+
+	<string name="basedir_text2">如果留空则使用Xash3D的目录</string>
+
+</resources>
