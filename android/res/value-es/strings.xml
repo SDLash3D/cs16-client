@@ -13,7 +13,7 @@
         <string name="enablezbot">Habilitar bots ZBot</string>
         <string name="enableyapb">Habilitar bots YaPB</string>
         <string name="defCmdArgs">-console -game cstrike -bots, etc</string>
-        <string name="basedir_text">Definir directorio del juego:</string>
+        <string name="basedir_text">Definir ruta para directorio del juego:</string>
         <string name="basedir_text2">Dejar vacío para utilizar las preferencias de Xash3D Android.</string>
 
 </resources>
