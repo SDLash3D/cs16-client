@@ -4,7 +4,7 @@
     <string name="app_name">CS16Client</string>
     <string name="title_activity_launcher">CS16Client Launcher</string>
     <string name="launch_button">¡Iniciar cs16-client!</string>
-    <string name="cmd_args_text">Parametros de línea de comandos:</string>
+    <string name="cmd_args_text">Parámetros de línea de comandos:</string>
     <string name="cmd_args_text2">¡No tocar si no sabes por qué necesitas esto!</string>
     <string name="not_found_msg">Nada fue encontrado. Revisa tu APK o elige otro servidor</string>
     <string name="not_found_title">Algo salió mal...</string>
