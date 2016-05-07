@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CS16Client</string>
+    <string name="title_activity_launcher">CS16Client Launcher</string>
+    <string name="launch_button">¡Iniciar cs16-client!</string>
+    <string name="cmd_args_text">Parámetros de línea de comandos:</string>
+    <string name="cmd_args_text2">¡No tocar si no sabes por qué necesitas esto!</string>
+    <string name="not_found_msg">Nada fue encontrado. Revisa tu APK o elige otro servidor</string>
+    <string name="not_found_title">Algo salió mal...</string>
+    <string name="not_implemented_msg">Esta característica no está implementada todavía</string>
+    <string name="not_implemented_title">¡No implementado!</string>
+        <string name="enablezbot">Habilitar bots ZBot</string>
+        <string name="enableyapb">Habilitar bots YaPB</string>
+        <string name="defCmdArgs">-console -game cstrike -bots, etc</string>
+        <string name="basedir_text">Definir ruta para directorio del juego:</string>
+        <string name="basedir_text2">Dejar vacío para utilizar las preferencias de Xash3D Android.</string>
+
+</resources>
