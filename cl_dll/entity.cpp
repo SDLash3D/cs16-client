@@ -20,12 +20,6 @@
 #include "pmtrace.h"	
 #include "pm_shared.h"
 
-#ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
-#else
-#define DLLEXPORT
-#endif
-
 void Game_AddObjects( void );
 
 extern vec3_t v_origin;

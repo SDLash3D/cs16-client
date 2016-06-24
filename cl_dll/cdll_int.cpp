@@ -32,12 +32,6 @@ extern "C"
 #include "render_api.h"
 #include "mobility_int.h"
 
-#ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
-#else
-#define DLLEXPORT
-#endif
-
 cl_enginefunc_t gEngfuncs = { 0 };
 render_api_t gRenderAPI = { 0 };
 mobile_engfuncs_t gMobileAPI = { 0 };

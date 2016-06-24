@@ -1108,12 +1108,6 @@ r_studio_interface_t studio =
 	R_StudioDrawPlayer,
 };
 
-#ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
-#else
-#define DLLEXPORT
-#endif
-
 /*
 ====================
 HUD_GetStudioModelInterface

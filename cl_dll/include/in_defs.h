@@ -16,9 +16,8 @@
 #define	ROLL	2 
 
 #ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
+#include <windows.h>
 #else
-#define DLLEXPORT
 #ifndef PORT_H
 typedef struct point_s{
 	int x;

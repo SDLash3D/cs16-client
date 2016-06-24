@@ -63,13 +63,6 @@ typedef unsigned char byte;
 #include "com_model.h"
 
 
-
-#ifdef _WIN32
-#define EXPORT _declspec(dllexport)
-#else
-#define EXPORT
-#endif
-
 extern globalvars_t *gpGlobals;
 
 #ifndef M_PI

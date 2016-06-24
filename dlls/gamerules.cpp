@@ -104,7 +104,7 @@ void CGameRules::RefreshSkillData(void)
 CGameRules *InstallGameRules(void)
 {
 	SERVER_COMMAND("exec game.cfg\n");
-	SERVER_EXECUTE();
+	SERVER_EXECUTE2();
 
 	if (!gpGlobals->deathmatch)
 		return new CHalfLifeTraining;

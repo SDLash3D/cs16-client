@@ -172,7 +172,7 @@ void EndRoundMessage(const char *sentence, int event)
 	if (g_pGameRules->ShouldRestart())
 	{
 		SERVER_COMMAND("quit\n");
-		SERVER_EXECUTE();
+		SERVER_EXECUTE2();
 		/*I know, that this is a strange way to make full restart, but I can't find right way */
 	}
 }

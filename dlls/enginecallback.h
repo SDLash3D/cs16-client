@@ -59,7 +59,7 @@ extern enginefuncs_t g_engfuncs;
 #define TRACE_HULL		(*g_engfuncs.pfnTraceHull)
 #define GET_AIM_VECTOR	(*g_engfuncs.pfnGetAimVector)
 #define SERVER_COMMAND	(*g_engfuncs.pfnServerCommand)
-#define SERVER_EXECUTE	(*g_engfuncs.pfnServerExecute)
+#define SERVER_EXECUTE2	(*g_engfuncs.pfnServerExecute)//SERVER_EXECUTE already present in windows winspool.h
 #define CLIENT_COMMAND	(*g_engfuncs.pfnClientCommand)
 #define PARTICLE_EFFECT	(*g_engfuncs.pfnParticleEffect)
 #define LIGHT_STYLE		(*g_engfuncs.pfnLightStyle)

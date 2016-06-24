@@ -16,12 +16,6 @@
 #include "triangleapi.h"
 #include "rain.h"
 
-#ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
-#else
-#define DLLEXPORT
-#endif
-
 extern "C"
 {
 	void DLLEXPORT HUD_DrawNormalTriangles( void );

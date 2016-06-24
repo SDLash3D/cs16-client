@@ -5,7 +5,6 @@
 #include "keydefs.h"
 cvar_t		*sensitivity;
 cvar_t		*in_joystick;
-#define DLLEXPORT
 #define	PITCH	0
 #define	YAW		1
 #define	ROLL	2 
@@ -225,7 +224,7 @@ void IN_Move( float frametime, usercmd_t *cmd )
 	ac_movecount = 0;
 }
 
-extern "C" void IN_MouseEvent( int mstate )
+extern "C" DLLEXPORT void IN_MouseEvent( int mstate )
 {
 	static int mouse_oldbuttonstate;
 	// perform button actions
@@ -248,22 +247,22 @@ extern "C" void IN_MouseEvent( int mstate )
 
 // Stubs
 
-extern "C" void IN_ClearStates ( void )
+extern "C" DLLEXPORT void IN_ClearStates ( void )
 {
 	//gEngfuncs.Con_Printf("IN_ClearStates\n");
 }
 
-extern "C" void IN_ActivateMouse ( void )
+extern "C" DLLEXPORT void IN_ActivateMouse ( void )
 {
 	//gEngfuncs.Con_Printf("IN_ActivateMouse\n");
 }
 
-extern "C" void IN_DeactivateMouse ( void )
+extern "C" DLLEXPORT void IN_DeactivateMouse ( void )
 {
 	//gEngfuncs.Con_Printf("IN_DeactivateMouse\n");
 }
 
-extern "C" void IN_Accumulate ( void )
+extern "C" DLLEXPORT void IN_Accumulate ( void )
 {
 	//gEngfuncs.Con_Printf("IN_Accumulate\n");
 }

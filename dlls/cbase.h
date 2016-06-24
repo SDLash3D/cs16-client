@@ -42,11 +42,7 @@ void REMOVE_ENTITY(edict_t *e);
 void CONSOLE_ECHO(char *pszMsg, ...);
 void CONSOLE_ECHO_LOGGED(char *pszMsg, ...);
 
-#ifdef _WIN32
-#define EXPORT _declspec(dllexport)
-#else
-#define EXPORT
-#endif
+#include "exportdef.h"
 
 extern "C" EXPORT int GetEntityAPI(DLL_FUNCTIONS *pFunctionTable, int interfaceVersion);
 extern "C" EXPORT int GetEntityAPI2(DLL_FUNCTIONS *pFunctionTable, int *interfaceVersion);

@@ -29,19 +29,14 @@ typedef unsigned char byte;
 typedef unsigned short word;
 typedef float vec_t;
 typedef int (*pfnUserMsgHook)(const char *pszName, int iSize, void *pbuf);
-#define _cdecl
+
 #include "util_vector.h"
-#ifdef _WIN32
-#define EXPORT	_declspec( dllexport )
-#else
-#define EXPORT
-#define stricmp strcasecmp
-#define strnicmp strncasecmp
-#define stristr	strcasestr
-#define strnistr strncasestr
-#endif
+
 #include "../engine/cdll_int.h"
 #include "../dlls/cdll_dll.h"
+
+#include "exportdef.h"
+
 #include "render_api.h"
 #include "mobility_int.h"
 extern cl_enginefunc_t gEngfuncs;

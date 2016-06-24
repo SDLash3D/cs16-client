@@ -87,7 +87,7 @@ public:
 
 
 #ifdef WIN32
-	#define EXPORT_FUNCTION __declspec(dllexport)
+	#define EXPORT_FUNCTION __attribute__ ((dllexport))
 #else
 	#define EXPORT_FUNCTION
 #endif

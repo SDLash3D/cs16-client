@@ -17,11 +17,7 @@
 #include "demo.h"
 #include "demo_api.h"
 #include <memory.h>
-#ifdef _WIN32
-#define DLLEXPORT __declspec( dllexport )
-#else
-#define DLLEXPORT
-#endif
+
 int g_demosniper = 0;
 int g_demosniperdamage = 0;
 float g_demosniperorg[3];
