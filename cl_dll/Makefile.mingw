@@ -6,7 +6,6 @@ SRCS := \
 	./entity.cpp \
 	./in_camera.cpp \
 	./input.cpp \
-	./parsemsg.cpp \
 	./rain.cpp \
 	./tri.cpp \
 	./util.cpp \
@@ -49,7 +48,6 @@ SRCS := \
 	./hud/spectator_gui.cpp \
 	./com_weapons.cpp \
 	./cs_wpn/cs_baseentity.cpp \
-	./cs_wpn/cs_objects.cpp \
 	./cs_wpn/cs_weapons.cpp \
 	../dlls/wpn_shared/wpn_ak47.cpp \
 	../dlls/wpn_shared/wpn_aug.cpp \
@@ -113,19 +111,14 @@ SRCS := \
 	./events/event_xm1014.cpp \
 	./events/hl_events.cpp \
 	./ev_common.cpp \
-	./events.cpp 
-
-SRCS_C := \
-	../pm_shared/pm_debug.c \
-	../pm_shared/pm_math.c \
-	../pm_shared/pm_shared.c 
+	../pm_shared/pm_debug.cpp \
+	../pm_shared/pm_math.cpp \
+	../pm_shared/pm_shared.cpp 
 
 INCLUDES =  -Iinclude -Iinclude/hud -Iinclude/studio -Iinclude/math -I../common -I. -I../game_shared -I../pm_shared -I../engine -I../dlls -I../public
 DEFINES = -Wno-write-strings -DCLIENT_DLL=1 -DCLIENT_WEAPONS=1
 CFLAGS = -Og -ggdb
-OBJS = $(SRCS:.cpp=.o) $(SRCS_C:.c=.o)
-%.o : %.c
-	$(CC) $(CFLAGS) -std=c99 $(INCLUDES) $(DEFINES) -c $< -o $@
+OBJS = $(SRCS:.cpp=.o)
 
 %.o : %.cpp
 	$(CXX) $(CFLAGS) -std=gnu++11 $(INCLUDES) $(DEFINES) -fpermissive -c $< -o $@
